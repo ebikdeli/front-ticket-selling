@@ -16,7 +16,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   <!-- **** 'base_head' block in 'base.html' -->
 
 
@@ -28,7 +28,7 @@
 
 
   <!-- ** 'title' block in 'base.html' ** -->
-  <title>Welcome to trenydol</title>
+  <title>به فروشگاه فروش بلیط خوش آمدید</title>
   <!-- ** 'title' block in 'base.html' ** -->
 
 
@@ -48,8 +48,45 @@
 
 
   <!-- ******* 'content' block in 'base.html' ******* -->
-  <main>
+  <main class="mx-auto">
+    <!-- * Header -->
+    <section class="mb-3 my-5 d-flex justify-content-between align-items-center" style="gap: 30px;">
+      <div>
+        <h4>بلیط فروشی</h4>
+      </div>
+      <div class="d-flex justify-content-center align-items-center" style="gap: 20px; font-size: 18px;">
+        <div class="belit-headers d-flex justify-content-center align-content-center">
+          <a href="#" style="text-decoration: none; color:black;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000000" viewBox="0 0 256 256">
+              <path
+                d="M240,116H209.66L165.17,71.52A11.9,11.9,0,0,0,156.69,68H44.28a12,12,0,0,0-10,5.34L4.67,117.78A4,4,0,0,0,4,120v48a12,12,0,0,0,12,12H36.29a28,28,0,0,0,55.42,0h72.58a28,28,0,0,0,55.42,0H240a12,12,0,0,0,12-12V128A12,12,0,0,0,240,116ZM41,77.78A4,4,0,0,1,44.28,76H156.69a4,4,0,0,1,2.82,1.17L198.34,116H15.47ZM64,196a20,20,0,1,1,20-20A20,20,0,0,1,64,196Zm128,0a20,20,0,1,1,20-20A20,20,0,0,1,192,196Zm52-28a4,4,0,0,1-4,4H219.71a28,28,0,0,0-55.42,0H91.71a28,28,0,0,0-55.42,0H16a4,4,0,0,1-4-4V124H240a4,4,0,0,1,4,4Z">
+              </path>
+            </svg>
+            <small style="font-size: 16px;">سفارشات من</small>
+          </a>
+        </div>
+        <div class="belit-headers d-flex justify-content-center align-content-center">
+          <a href="#" style="text-decoration: none; color:black;">
+            <i class="bi bi-person" style="font-size: 18px;"></i>
+            <small style="font-size: 16px;">ثبت نام</small>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- * Header -->
 
+    <!-- * Main ad image -->
+    <section class="my-3 mx-auto">
+      <img src="./image/main-ad.gif" id="main-ad-image" alt="">
+    </section>
+    <!-- * Main ad image -->
+
+    <!-- * Buttons -->
+    <section id="belit-buttons" class="my-2 d-flex justify-content-start align-content-center">
+      <button class="belit-buttons">دکمه 1</button>
+      <button class="belit-buttons">دکمه 2</button>
+    </section>
+    <!-- * Buttons -->
   </main>
   <!-- ******* 'content' block in 'base.html' ******* -->
 
@@ -59,7 +96,7 @@
 
   <!-- *** 'footer' block in 'base.html/include footer.html' *** -->
   <footer>
-    
+
   </footer>
   <!-- *** 'footer' block in 'base.html/include footer.html' -->
 
