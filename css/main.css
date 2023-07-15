@@ -1,5 +1,18 @@
+:root{
+    --orange-color: #f27a1a;
+}
+
 *{
     font-family: 'Yekan' !important;
+}
+
+#belit-header-logo{
+    width: 146px;
+    height: 59px;
+}
+
+#belit-header-text{
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #fb7205, 0 0 82px #fb7205, 0 0 92px #fb7205, 0 0 102px #fb7205, 0 0 151px #fb7205;
 }
 
 main{
@@ -22,11 +35,13 @@ main{
 
 .belit-headers{
     cursor: pointer;
-    gap: 8px;
+    gap: 10px;
+    text-decoration: none;
+    color: black;
 }
 
 .belit-headers:hover{
-    color: #f27a1a !important;
+    color: var(--orange-color) !important
 }
 
 /* i, svg{
@@ -34,7 +49,7 @@ main{
 } */
 
 /* i:hover, svg:hover{
-    color: #f27a1a;
+    color: var(--orange-color);
 } */
 
 #main-ad-image{
@@ -47,7 +62,19 @@ main{
 }
 
 .belit-buttons{
-    background-color: #f27a1a;
-    color: white;
-    border-radius: 5px;
+    background-color: white;
+    border-color: rgb(234, 234, 234);
+    border-radius: 8px;
+    border-width: 1px;
+    text-shadow: none;
+    padding: 6px 28px !important;
+}
+
+.belit-buttons-active{
+    background-color: var(--orange-color) !important;
+    color: white !important;
+}
+
+.belit-buttons:hover{
+    border-color: var(--orange-color);
 }
