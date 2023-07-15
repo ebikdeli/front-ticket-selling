@@ -44,14 +44,6 @@ main{
     color: var(--orange-color) !important
 }
 
-/* i, svg{
-    
-} */
-
-/* i:hover, svg:hover{
-    color: var(--orange-color);
-} */
-
 #main-ad-image{
     max-width: 100%;
     height: auto;
@@ -77,4 +69,75 @@ main{
 
 .belit-buttons:hover{
     border-color: var(--orange-color);
+}
+
+/* * Belit-Order */
+.belit-card{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(229, 229, 229);
+    border-radius: 8px;
+}
+
+.belit-card-top{
+    padding: 12px;
+    padding-bottom: 0;
+}
+
+.belit-card-top p{
+    font-size: 12px !important;
+    font-weight: 500;
+    margin: 0;
+}
+
+.belit-price{
+    color: var(--orange-color);
+}
+
+.belit-card-image{
+    /* display: block; */
+    width: 154px;
+    height: 78px;
+}
+
+.belit-card-added-image{
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    z-index: 1;
+}
+
+.belit-number-left{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(229, 229, 229);
+    border-radius: 8px;
+    max-width: fit-content;
+}
+
+.belit-card-separator{
+    border-width: 1px 0 0 0;
+    border-color: rgb(229, 229, 229);
+    border-style: solid;
+}
+
+.belit-card-bottom{
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+}
+
+.belit-card-bottom > div{
+    gap: 10px;
+}
+
+.belit-card-bottom p{
+    margin: 0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.belit-card-tarikh{
+    font-size: 12px !important;
+    text-align: right;
 }

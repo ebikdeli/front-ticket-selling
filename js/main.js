@@ -4,6 +4,18 @@ import { validateEmail } from './functions.js';
 import {sendPostData} from './ajax.js';
 
 
+// *** Convert number to a Comma separator string
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+// *** Convert back a comma separator string to Number
+function parseToNumber(str) {
+    return parseFloat(str.replaceAll(',', ''));
+}
+
+
 
 // *** Add to cart button
 const addCartButtons = document.querySelectorAll('.add-to-cart');

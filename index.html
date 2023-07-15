@@ -62,7 +62,7 @@
     
       <div class="d-flex justify-content-center align-items-center" style="gap: 20px; font-size: 18px;">
         <div>
-          <a href="#" class="belit-headers d-flex justify-content-center align-content-center" style="text-decoration: none; color:black;">
+          <a href="#" class="belit-headers d-flex justify-content-center align-items-center" style="text-decoration: none; color:black;">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000000" viewBox="0 0 256 256">
               <path
                 d="M240,116H209.66L165.17,71.52A11.9,11.9,0,0,0,156.69,68H44.28a12,12,0,0,0-10,5.34L4.67,117.78A4,4,0,0,0,4,120v48a12,12,0,0,0,12,12H36.29a28,28,0,0,0,55.42,0h72.58a28,28,0,0,0,55.42,0H240a12,12,0,0,0,12-12V128A12,12,0,0,0,240,116ZM41,77.78A4,4,0,0,1,44.28,76H156.69a4,4,0,0,1,2.82,1.17L198.34,116H15.47ZM64,196a20,20,0,1,1,20-20A20,20,0,0,1,64,196Zm128,0a20,20,0,1,1,20-20A20,20,0,0,1,192,196Zm52-28a4,4,0,0,1-4,4H219.71a28,28,0,0,0-55.42,0H91.71a28,28,0,0,0-55.42,0H16a4,4,0,0,1-4-4V124H240a4,4,0,0,1,4,4Z">
@@ -72,7 +72,7 @@
           </a>
         </div>
         <div>
-          <a href="#" class="belit-headers d-flex justify-content-center align-content-center" style="text-decoration: none; color:black;">
+          <a href="#" class="belit-headers d-flex justify-content-center align-items-center" style="text-decoration: none; color:black;">
             <i class="bi bi-person" style="font-size: 18px;"></i>
             <small style="font-size: 16px;">ثبت نام</small>
           </a>
@@ -88,16 +88,60 @@
     <!-- * Main ad image -->
 
     <!-- * Buttons -->
-    <section id="belit-buttons" class="my-4 d-flex justify-content-start align-content-center">
+    <section id="belit-buttons" class="my-4 d-flex justify-content-start align-items-center">
       <button class="btn belit-buttons belit-buttons-active">دکمه 1</button>
       <button class="btn belit-buttons">دکمه 2</button>
     </section>
     <!-- * Buttons -->
 
     <!-- * Belit-Order -->
-    <section>
-      <div>
-        
+    <section class="d-flex justify-content-start align-items-center">
+      <!-- * Belit-Card -->
+      <div class="belit-card d-flex justify-content-start align-items-center flex-wrap">
+        <!-- Top part in Belit-Card -->
+        <div>
+        <div class="belit-card-top mx-auto">
+          <p class="">قیمت جایزه</p>
+          <p class="belit-price">
+            <span class="belit-price-number">5000000</span>&nbsp;<span>تومان</span>
+          </p>
+          <div class="py-2" style="position: relative;">
+            <img src="./image/belit1.webp" alt="" class="belit-card-image">
+            <img src="./image/added-image.svg" alt="" class="belit-card-added-image">
+          </div>
+          <div class="belit-number-left px-1">
+            <p class="belit-price">
+              <span>1</span>&nbsp;<span>بلیط</span>
+            </p>
+          </div>
+        </div>
+        <!-- Separator line in Belit-Card -->
+        <div class="my-3">
+          <div class="belit-card-separator"></div>
+        </div>
+        <!-- Bottom part in Belit-Card -->
+        <div class="belit-card-bottom">
+          <div class="d-flex justify-content-between align-items-center">
+            <p>نام بلیط</p>
+            <p class="belit-price">
+              <span>10000</span>&nbsp;<span>تومان</span>
+            </p>
+          </div>
+          <div class="belit-card-tarikh my-1">
+            <small>
+              <span>تاریخ قرعه کشی:</span>&nbsp;<span>10.08.2023</span>
+            </small>
+          </div>
+        </div>
+        <!-- Add belit to card part -->
+        <div class="belit-cart-add-cart">
+
+        </div>
+      </div>
+      </div>
+      <!-- * Order -->
+      <div class="order-box">
+
       </div>
     </section>
     <!-- * Belit-Order -->
