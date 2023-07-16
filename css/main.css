@@ -1,5 +1,6 @@
 :root{
     --orange-color: #f27a1a;
+    --border-color: #e6e6e6;
 }
 
 *{
@@ -55,7 +56,7 @@ main{
 
 .belit-buttons{
     background-color: white;
-    border-color: rgb(234, 234, 234);
+    border-color: var(--border-color);
     border-radius: 8px;
     border-width: 1px;
     text-shadow: none;
@@ -72,10 +73,18 @@ main{
 }
 
 /* * Belit-Order */
+.belit-order-section{
+    gap: 20px;
+}
+
+.belit-card-part{
+    gap: 10px;
+}
+
 .belit-card{
     border-style: solid;
     border-width: 1px;
-    border-color: rgb(229, 229, 229);
+    border-color: var(--border-color);
     border-radius: 8px;
 }
 
@@ -85,6 +94,7 @@ main{
 }
 
 .belit-card-top p{
+    text-align: end;
     font-size: 12px !important;
     font-weight: 500;
     margin: 0;
@@ -110,21 +120,24 @@ main{
 .belit-number-left{
     border-style: solid;
     border-width: 1px;
-    border-color: rgb(229, 229, 229);
+    border-color: var(--border-color);
     border-radius: 8px;
     max-width: fit-content;
+    margin-bottom: 8px;
 }
 
 .belit-card-separator{
-    border-width: 1px 0 0 0;
-    border-color: rgb(229, 229, 229);
-    border-style: solid;
+    text-align: center;
+    height: 15px;
+    background-color: #f5f5f5;
+    color: #dc2e2e;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .belit-card-bottom{
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-bottom: 12px;
+    text-align: end;
+    padding: 12px;
 }
 
 .belit-card-bottom > div{
@@ -140,4 +153,87 @@ main{
 .belit-card-tarikh{
     font-size: 12px !important;
     text-align: right;
+}
+
+.satilan{
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+.belit-progress > span{
+    display: block;
+    height: 3px;
+    background-color: var(--border-color);
+    /* border-style: solid;
+    border-width: 3px 0 0 0;
+    border-color: var(--border-color); */
+}
+
+.belit-card-add-cart{
+    margin: 0 12px 12px 12px;
+}
+
+.belit-card-add-cart > button{
+    width: 100%;
+    background-color: white;
+    color: var(--orange-color);
+    border-color: var(--orange-color);
+}
+
+.belit-card-add-cart > button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: var(--orange-color);
+    border-color: var(--orange-color);
+}
+
+.belit-card-add-cart span{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* * Order box */
+.order-box{
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 384px;
+    min-width: 384px;
+    padding: 16px;
+    align-self: flex-start;
+    text-align: end;
+}
+
+.order-box div{
+    font-size: 22px;
+}
+
+.order-box-separator{
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 12px 0 12px 0;
+}
+
+/* * Order-empty */
+.order-empty{
+    padding: 34px 30px 34px 30px;
+}
+
+.order-empty-img{
+    width: 45px;
+    height: 45px;
+}
+
+.order-empty p{
+    padding-top: 10px;
+}
+
+.order-empty p:nth-of-type(1){
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: var(--orange-color) !important;
+}
+
+.order-empty p:nth-of-type(2){
+    font-size: 14px;
+    color: #999;
 }
