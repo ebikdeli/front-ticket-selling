@@ -4,7 +4,7 @@
 }
 
 *{
-    font-family: 'Yekan' !important;
+    font-family: 'Yekan';
 }
 
 #belit-header-logo{
@@ -169,27 +169,79 @@ main{
     border-color: var(--border-color); */
 }
 
+/* * belit-card-add-cart part */
 .belit-card-add-cart{
     margin: 0 12px 12px 12px;
 }
 
-.belit-card-add-cart > button{
+.belit-card-add-cart-button{
     width: 100%;
     background-color: white;
     color: var(--orange-color);
     border-color: var(--orange-color);
+    border-radius: 4px;
+    height: 30px;
 }
 
-.belit-card-add-cart > button:hover{
+.belit-card-add-cart-button:hover{
     cursor: pointer;
     background-color: white;
     color: var(--orange-color);
     border-color: var(--orange-color);
 }
 
-.belit-card-add-cart span{
+.belit-card-add-cart-button span{
     font-size: 12px;
     font-weight: 600;
+}
+
+.belit-card-add-cart-inc-dec{
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    gap: 0;
+    height: 29px !important;
+}
+
+/* '> *' is the happen to all children css selector */
+.belit-card-add-cart-inc-dec > *{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.belit-card-add-cart-inc-dec button{
+    color: var(--orange-color);
+    background-color: #fbfbfb;
+    border: #999;
+    font-weight: 500;
+    font-size: 12px;
+    width: 25px;
+    height: 100%;
+}
+
+.belit-card-add-cart-inc-dec input{
+    display: inline-flex !important;
+    height: 100%;
+    border: none;
+    border-left: 1px solid #e6e6e6 !important;
+    border-right: 1px solid #e6e6e6 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    color: #4a4a4a !important;
+}
+
+/* Chrome, Safari, Edge, Opera (TO DISAPPEAR THE NUMBER SCROLLER FOR NUMBER INTPUT) */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.belit-card-add-cart-inc-dec input{
+    /* Firefox (TO DISAPPEAR THE NUMBER SCROLLER FOR NUMBER INTPUT) */
+    -moz-appearance: textfield;
+
+    
 }
 
 /* * Order box */

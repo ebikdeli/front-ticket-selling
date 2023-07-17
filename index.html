@@ -85,7 +85,7 @@
 
     <!-- * Main ad image -->
     <section class="my-3 mx-auto">
-      <img src="./image/main-ad.gif" id="main-ad-image" alt="">
+      <img src="./image/main-ad.gif" id="main-ad-image" alt="" style="border-radius: 5px;">
     </section>
     <!-- * Main ad image -->
 
@@ -148,7 +148,18 @@
           </div>
           <!-- Add belit to cart part -->
           <div class="belit-card-add-cart text-center">
-            <button class="btn py-1 px-0"><span>خرید بلیط</span></button>
+            <!-- ? If belit not in the user cart or not selected by the user yet -->
+            <button data-belit-id="111" class="belit-card-add-cart-button btn d-flex justify-content-center align-items-center px-0 d-none"><span>خرید بلیط</span></button>
+            <!-- ! If current belit already is in the cart or user has selected the belit -->
+            <div class="belit-card-add-cart-inc-dec w-100 text-center d-flex justify-content-between align-items-center">
+              <button class="">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input class="text-center w-100" type="number" min="0" max="150" value="1" autofocus="false">
+              <button class="">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
           </div>
         </div>
         <!-- For active belit come here (END) -->
@@ -200,7 +211,7 @@
           </div>
           <!-- Add belit to cart part -->
           <div class="belit-card-add-cart text-center">
-            <button class="btn py-1 px-0"><span>خرید بلیط</span></button>
+            <button class="belit-card-add-cart-button btn d-flex justify-content-center align-items-center px-0"><span>خرید بلیط</span></button>
           </div>
         </div>
 
@@ -251,7 +262,7 @@
           </div>
           <!-- Add belit to cart part -->
           <div class="belit-card-add-cart text-center">
-            <button class="btn py-1 px-0"><span>خرید بلیط</span></button>
+            <button class="belit-card-add-cart-button btn d-flex justify-content-center align-items-center px-0"><span>خرید بلیط</span></button>
           </div>
         </div>
 
@@ -302,7 +313,7 @@
           </div>
           <!-- Add belit to cart part -->
           <div class="belit-card-add-cart text-center">
-            <button class="btn py-1 px-0"><span>خرید بلیط</span></button>
+            <button class="belit-card-add-cart-button btn d-flex justify-content-center align-items-center px-0"><span>خرید بلیط</span></button>
           </div>
         </div>
 
@@ -353,7 +364,7 @@
           </div>
           <!-- Add belit to cart part -->
           <div class="belit-card-add-cart text-center">
-            <button class="btn py-1 px-0"><span>خرید بلیط</span></button>
+            <button class="belit-card-add-cart-button btn d-flex justify-content-center align-items-center px-0"><span>خرید بلیط</span></button>
           </div>
         </div>
 
@@ -404,7 +415,7 @@
           </div>
           <!-- Add belit to cart part -->
           <div class="belit-card-add-cart text-center">
-            <button class="btn py-1 px-0"><span>خرید بلیط</span></button>
+            <button class="belit-card-add-cart-button btn d-flex justify-content-center align-items-center"><span>خرید بلیط</span></button>
           </div>
         </div>
 
