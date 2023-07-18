@@ -19,15 +19,8 @@
 main{
     max-width: 1200px;
     padding: 20px;
+    /* direction: rtl; */
 }
-
-/* @media screen and (max-width:1159px) {
-    main{
-        width: 90% !important;
-    }
-} */
-
-
 
 @media screen and (max-height:500px) {
     main{
@@ -291,4 +284,112 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .order-empty p:nth-of-type(2){
     font-size: 14px;
     color: #999;
+}
+
+/* * Order fills */
+.belit-orders{
+    gap: 0;
+    margin-bottom: 16px;
+    text-align: start;
+}
+
+.belit-orders-name{
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    display: -webkit-box;
+    width: 40%;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    /* position: relative; */
+}
+/* How to fix not showing dots in the text overflow for custom font */
+/* ??? https://stackoverflow.com/questions/28587045/text-overflow-ellipsis-not-showing-with-some-custom-font */
+.belit-orders-name::after{
+    content: "...";
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: white;
+    padding: 0 5px;
+}
+
+.belit-orders-price{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--orange-color);
+    margin: 0;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding-left: 12px;
+}
+
+.belit-orders > div{
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: default !important;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    background-color: #fff;
+    cursor: pointer;
+    -webkit-animation: fCbXLaQZ ease-in-out .2s;
+    animation: fCbXLaQZ ease-in-out .2s;
+}
+
+.order-fill-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange-color);
+    font-size: 12px;
+    font-weight: 400;
+    background-color: #fbfbfb;
+    border: none;
+    width: 25px !important;
+    height: 100%;
+}
+
+.order-fill-input{
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 40px;
+    height: 34px;
+    border: none;
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    text-align: center;
+    font-weight: 400;
+    font-size: 12px;
+    color: #4a4a4a;
+}
+
+/* * Total-Orders */
+.total-orders{
+    padding: 13px 0 13px 0;
+    border: none;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.total-orders p{
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+.total-orders span{
+    font-weight: 600;
+}
+
+.belit-order-payment-button{
+    margin-top: 24px;
+    padding: 13px 65px 13px 65px;
 }

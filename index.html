@@ -50,7 +50,7 @@
   <!-- ******* 'content' block in 'base.html' ******* -->
   <main class="mx-auto">
     <!-- * Header -->
-    <section class="mt-4 mb-3 d-flex justify-content-between align-items-center" style="gap: 30px;">
+    <section class="d-flex justify-content-between align-items-center" style="gap: 30px; height: 86px;">
       <div class="d-flex justify-content-center align-items-center" style="gap: 10px;">
         <a href="#">
           <img id="belit-header-logo" src="https://cdn.dsmcdn.com/web/logo/ty-web.svg" alt="trendyol logo">
@@ -84,7 +84,7 @@
     <!-- * Header -->
 
     <!-- * Main ad image -->
-    <section class="my-3 mx-auto">
+    <section class="mx-auto" style="margin-bottom: 24px;">
       <img src="./image/main-ad.gif" id="main-ad-image" alt="" style="border-radius: 5px;">
     </section>
     <!-- * Main ad image -->
@@ -113,8 +113,8 @@
               <img src="./image/added-image.svg" alt="" class="belit-card-added-image">
             </div>
             <div class="belit-number-left px-1">
-              <p class="belit-price">
-                <span>1</span>&nbsp;<span>بلیط</span>
+              <p class="belit-price d-flex justify-content-center align-items-center">
+                <span style="font-size: 11px;">1</span>&nbsp;<span>عدد</span>
               </p>
             </div>
           </div>
@@ -155,7 +155,7 @@
               <button class="">
                 <i class="fas fa-minus"></i>
               </button>
-              <input class="text-center" type="text" min="0" max="150" value="1" autofocus="false">
+              <input class="text-center" type="number" min="1" max="150" value="1" autofocus="false">
               <button class="">
                 <i class="fas fa-plus"></i>
               </button>
@@ -424,7 +424,7 @@
       </div>
       <!-- * Order-Box -->
       <div class="order-box">
-        <div class="m-0">خلاصه سفارش</div>
+        <div class="m-0" style="color: #333;">خلاصه سفارش</div>
         <div class="order-box-separator"></div>
         <!-- When user selects a belit, this block (order-empty) changed with another block (order-fill) (START) -->
         <div class="order-empty text-center d-none">
@@ -435,12 +435,82 @@
           <p class="m-0">پس از خریداری بلیط سفارش خود را در اینجا ببینید</p>
         </div>
         <!-- When user selects a belit, this block (order-empty) changed with another block (order-fill) (END) -->
-        <!-- (START) order-fill -->
-        <div class="order-fill text-center">
-          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <!-- (START) order-fill (If any belit selected, following block show) -->
+        <div class="order-fill">
+          <!-- Order belits start here -->
+          <div class="belit-orders d-flex justify-content-center align-items-center">
+            <p class="belit-orders-name">نام بلیط طولانی است و کاملا در اینجا جا نمیگیرد</p>
+            <!-- <p class="belit-orders-name">hello my beautiful world with everything in it</p> -->
+
+            <p class="belit-orders-price">
+              <span>30000000</span>&nbsp;<span style="font-size: 12px;">تومان</span>
+            </p>
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="order-fill-button"><i class="fas fa-minus"></i></button>
+              <input type="number" value="1" min="1" max="150" maxlength="3" class="order-fill-input">
+              <button class="order-fill-button"><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+          <!-- Order belits end here -->
+
+
+          <!-- Order belits start here -->
+          <div class="belit-orders d-flex justify-content-center align-items-center">
+            <p class="belit-orders-name">یک بلیط گران</p>
+            <!-- <p class="belit-orders-name">hello my beautiful world with everything in it</p> -->
+
+            <p class="belit-orders-price">
+              <span>1500000</span>&nbsp;<span style="font-size: 12px;">تومان</span>
+            </p>
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="order-fill-button"><i class="fas fa-minus"></i></button>
+              <input type="number" value="1" min="10" max="150" maxlength="3" class="order-fill-input">
+              <button class="order-fill-button"><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+          <!-- Order belits end here -->
+
+
+          <!-- Order belits start here -->
+          <div class="belit-orders d-flex justify-content-center align-items-center">
+            <p class="belit-orders-name">یک بلیط مناسب</p>
+            <!-- <p class="belit-orders-name">hello my beautiful world with everything in it</p> -->
+
+            <p class="belit-orders-price">
+              <span>60000000</span>&nbsp;<span style="font-size: 12px;">تومان</span>
+            </p>
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="order-fill-button"><i class="fas fa-minus"></i></button>
+              <input type="number" value="2" min="1" max="150" maxlength="3" class="order-fill-input">
+              <button class="order-fill-button"><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+          <!-- Order belits end here -->
+          
+          <!-- Total orders -->
+          <div class="total-orders d-flex justify-content-center align-content-center flex-column">
+            <!-- total belit -->
+            <div class="d-flex justify-content-between align-items-center">
+              <p>جمع بلیط ها:</p>
+              <p class="d-flex justify-content-center align-items-center">
+                <span id="total-belit">10</span>&nbsp;<span>عدد</span>
+              </p>
+            </div>
+            <!-- total price -->
+            <div class="d-flex justify-content-between align-items-center">
+              <p>جمع قیمت:</p>
+              <p class="d-flex justify-content-center align-items-center">
+                <span id="total-price">10000000</span>&nbsp;<span>تومان</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- دکمه ادامه جهت پرداخت-->
+          <button class="belit-order-payment-button mx-auto d-flex justify-content-center align-items-center">
+            <span>پرداخت</span>
+            <i class="bi bi-chevron-right"></i>
+          </button>
+      
         </div>
         <!-- (END) order-fill -->
       </div>
