@@ -4,7 +4,7 @@
 }
 
 *{
-    font-family: 'Yekan';
+    font-family: 'B Yekan';
 }
 
 #belit-header-logo{
@@ -17,14 +17,15 @@
 }
 
 main{
-    max-width: 1160px;
+    max-width: 1200px;
+    padding: 20px;
 }
 
-@media screen and (max-width:1159px) {
+/* @media screen and (max-width:1159px) {
     main{
         width: 90% !important;
     }
-}
+} */
 
 
 
@@ -74,7 +75,7 @@ main{
 
 /* * Belit-Order */
 .belit-order-section{
-    gap: 20px;
+    gap: 0;
 }
 
 .belit-card-part{
