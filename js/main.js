@@ -17,6 +17,39 @@ function parseToNumber(str) {
 
 
 
+// *** Buy ticket with 'buy ticket button'
+const belitCards = document.getElementsByClassName('belit-card');
+Array.from(belitCards).forEach(belitCard => {
+    belitCard.addEventListener('click', e =>{
+        if(e.target.classList.contains('belit-card-add-cart-button')){
+            let belit_id = e.target.getAttribute('data-belit-id');
+            let belit_quantity = '1';
+            console.log(belit_id, belit_quantity);
+            // Send data to server
+            // let url = 'http://127.0.0.1:8000/cart/add-ticket-cart'
+            // let errormsg = 'ارتباط با سرور برقرار نشد';
+            // let data = {'ticket-id': belit_id, 'quantity': belit_quantity}
+            // sendPostData(url, data, errormsg)
+            // .then(data => {
+            //     console.log(data);
+            // })
+            // .catch(err => {
+            //     console.log(err);
+            // })
+            // !!! Simulate successful ajax call
+            var belitIncDec = e.target.nextElementSibling
+            belitIncDec.classList.remove('d-none');
+        }
+    })
+})
+
+
+
+
+
+
+
+
 // *** Add to cart button
 const addCartButtons = document.querySelectorAll('.add-to-cart');
 Array.from(addCartButtons).forEach(cartButton => {
@@ -146,29 +179,3 @@ prForm.addEventListener('submit', e =>{
         }, 2000)
     }
 })
-
-
-// *** Set custom html input validity message - NOTE: Better not to use this kind of validation because its ugly and primitive! Use JS power to do the validation! ***
-// document.addEventListener('DOMContentLoaded', event => {
-//     let inputs = document.querySelectorAll('.form-control');
-//     Array.from(inputs).forEach(elem => {
-//         elem.oninvalid = (e => {
-//             console.log(e.target.validity);
-//             if(e.target.validity.typeMismatch){
-//                 e.target.setCustomValidity('لطفا ایمیل خود را به شکل صحیح وارد کنید');
-//             }
-//             if(e.target.validity.valueMissing){
-//                 if(e.target.type == 'email'){
-//                     e.target.setCustomValidity('ایمیل خود را وارد کنید');
-//                 }
-//                 else{
-//                     e.target.setCustomValidity('پیام خود را وارد کنید');
-//                 }
-//             }
-//         })
-//         // Following block is necessary to let the form validation proceeds without any problem
-//         elem.oninput = (e => {
-//             e.target.setCustomValidity('');
-//         })
-//     })
-// })

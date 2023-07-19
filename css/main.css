@@ -175,6 +175,8 @@ main{
     border-color: var(--orange-color);
     border-radius: 4px;
     height: 30px;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .belit-card-add-cart-button:hover{
@@ -184,10 +186,10 @@ main{
     border-color: var(--orange-color);
 }
 
-.belit-card-add-cart-button span{
+/* .belit-card-add-cart-button span{
     font-size: 12px;
     font-weight: 600;
-}
+} */
 
 .belit-card-add-cart-inc-dec{
     border: 1px solid #e6e6e6;
@@ -252,7 +254,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .order-box div{
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .order-box-separator{
@@ -330,7 +332,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .belit-orders > div{
-    border: 1px solid var(--border-color);
+    /* height: 34px; */
+    border: 1px solid #e6e6e6;
     border-radius: 4px;
     cursor: default !important;
     -webkit-box-align: center;
@@ -390,6 +393,43 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .belit-order-payment-button{
+    height: 49px;
     margin-top: 24px;
-    padding: 13px 65px 13px 65px;
+    padding: 10px 65px 10px 65px;
+    background-color: var(--orange-color);
+    border: 0;
+    color: #fff;
+    border-radius: 6px;
+    
+    overflow: hidden;
+    -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,-webkit-box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,-webkit-box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,-webkit-box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.belit-order-payment-button:hover{
+    box-shadow: rgba(0,0,0,.2) 0px 2px 4px -1px, rgba(0,0,0,.14) 0px 4px 5px 0px, rgba(0,0,0,.12) 0px 1px 10px 0px;
+}
+
+.belit-order-payment-button span{
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.belit-order-payment-button i{
+    font-size: 20px;
+    margin-left: 8px;
+    margin-right: -4px;
+    font-weight: 900;
+}
+
+#belit-order-alert{
+    /* height: 16px; */
+    margin: 0;
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
 }
