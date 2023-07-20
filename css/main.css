@@ -177,25 +177,29 @@ main{
     height: 30px;
     font-size: 12px;
     font-weight: 600;
+    /* animation: fade-out ease-in-out .2s; */
 }
-
 .belit-card-add-cart-button:hover{
     cursor: pointer;
     background-color: white;
     color: var(--orange-color);
     border-color: var(--orange-color);
 }
-
-/* .belit-card-add-cart-button span{
-    font-size: 12px;
-    font-weight: 600;
-} */
+/* Animation for removing buying belit-card button */
+@keyframes fade-out{
+    0%{
+      opacity: 1.0
+    }
+    100%{
+      opacity: 0.0
+    }
+  }
 
 .belit-card-add-cart-inc-dec{
     border: 1px solid #e6e6e6;
     border-radius: 4px;
     gap: 0;
-    height: 29px !important;
+    height: 30px !important;
 }
 
 /* '> *' is the happen to all children css selector */

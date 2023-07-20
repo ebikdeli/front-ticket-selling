@@ -37,8 +37,23 @@ Array.from(belitCards).forEach(belitCard => {
             //     console.log(err);
             // })
             // !!! Simulate successful ajax call
-            var belitIncDec = e.target.nextElementSibling
-            belitIncDec.classList.remove('d-none');
+            e.target.style.animation = 'fade-out ease-in-out .2s';
+            setTimeout(()=>{e.target.classList.add('d-none')}, 200)
+            var belitIncDec = e.target.nextElementSibling;
+            setTimeout(()=> belitIncDec.classList.remove('d-none'), 200)
+            // To be able repeat this process smooth, we need to remove animation from current style
+            setTimeout(()=> {
+                e.target.style.animation = null
+            }, 50)
+
+            // ! Add current belit to the orders. First check if 'order-fill' has 'd-none' class
+            const orderEmpty = document.querySelector('.order-empty');
+            const orderFill = document.querySelector('.order-fill');
+            if(orderFill.classList.contains('d-none')){
+                orderEmpty.classList.remove('d-none');
+                orderFill.classList.add('d-none');
+            }
+            
         }
     })
 })
