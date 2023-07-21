@@ -94,7 +94,7 @@ main{
     margin: 0;
 }
 
-.belit-price{
+.prize_money{
     color: var(--orange-color);
 }
 
@@ -360,7 +360,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     background-color: #fbfbfb;
     border: none;
     width: 25px !important;
-    height: 100%;
+    /* height: 100%; */
+    height: 34px;
 }
 
 .order-fill-input{
