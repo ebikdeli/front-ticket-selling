@@ -4,6 +4,9 @@ import { validateEmail } from './functions.js';
 import {sendPostData} from './ajax.js';
 
 
+const cartId = document.querySelector('.cart-id').value
+
+
 // *** Convert number to a Comma separator string
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
@@ -42,7 +45,6 @@ const calculateTotalQuantity = () => {
     var totalquantity = document.querySelector('#total-belit');
     var quantity = 0;
     Array.from(orderFillInputs).forEach(orderFillInput => {
-        console.log(orderFillInput);
         quantity += Number(orderFillInput.value)
     })
     totalquantity.innerHTML = quantity;
@@ -56,17 +58,13 @@ function checkHasOrder() {
     // * If no order registered, show empty order message to user
     let orderEmpty = document.querySelector('.order-empty');
     let orderFill = document.querySelector('.order-fill');
-    console.log(calculateTotalQuantity());
-    console.log(calculateTotalPrice());
     if(calculateTotalQuantity() == 0 && calculateTotalPrice() == 0){
         orderEmpty.classList.remove('d-none');
         orderFill.classList.add('d-none')
-        console.log('show no order');
     }
     else{
         orderEmpty.classList.add('d-none');
         orderFill.classList.remove('d-none')
-        console.log('show orders');
     }
 }
 checkHasOrder();
@@ -90,6 +88,8 @@ Array.from(document.querySelectorAll('.belit-orders-price')).forEach(elem => {
 document.querySelector('#total-price').innerHTML = numberWithCommas(document.querySelector('#total-price').innerHTML);
 
 
+// *****************************************************************************
+
 
 // *** Buy ticket with 'buy ticket button'
 const belitCards = document.getElementsByClassName('belit-card');
@@ -99,11 +99,10 @@ Array.from(belitCards).forEach(belitCard => {
         if(e.target.classList.contains('belit-card-add-cart-button')){
             let belit_id = e.target.getAttribute('data-belit-id');
             let belit_quantity = '1';
-            console.log(belit_id, belit_quantity);
             // Send data to server
-            // let url = 'http://127.0.0.1:8000/cart/add-ticket-cart'
+            // let url = `${location.protocol}://${location.hostname}/cart/add-ticket-cart`;
             // let errormsg = 'ارتباط با سرور برقرار نشد';
-            // let data = {'ticket-id': belit_id, 'quantity': belit_quantity}
+            // let data = {'cart-id': cartId, 'ticket-id': belit_id, 'quantity': belit_quantity}
             // sendPostData(url, data, errormsg)
             // .then(data => {
             //     console.log(data);
@@ -154,15 +153,117 @@ Array.from(belitCards).forEach(belitCard => {
 })
 
 
+// ??????????????????????????????? INCREASE QUANTITY FUNCTIONS ???????????????
 
-// *** 'Increase' ticket quantity with 'inc button' in Belit section
+// *** 'Increase' ticket quantity with 'inc button' in Belit Card section
+const IncBelitCard = (buttonElem) => {
+    let inputElem = buttonElem.previousElementSibling;
+    let belitQuantity = Number(inputElem.value)
+    let belitId = inputElem.getAttribute('data-belit-id');
+    let belit = buttonElem.parentElement.parentElement.parentElement;
+    let belitPrice = parseToNumber(belit.querySelector('.belit-price span:first-of-type').innerHTML);
+    // console.log(inputElem, belitQuantity, belitId, belit, belitPrice);
+    // No we can process further things on the data
+    if (belitQuantity == 150){
+        console.log('Belit quantity exceeded from 150 unit');
+        return null;
+    }
+    // Make ajax call to increase ticket by one
+    // let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
+    // let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': belitQuantity+1}
+    // sendPostData(url, data)
+    // .then(data => {
+    //     console.log(data);
+    // })
+    // .catch(error => {
+    //     console.log(error);
+    // })
+
+    // ! Simulate successfully changed belit quantity
+    // After successfully increased belit quantity, update the front with 'belit-input' and 'orderfill'
+    let belitOrders = document.querySelectorAll('.belit-orders');
+    Array.from(belitOrders).forEach(belitOrder => {
+        // console.log(belitOrder.querySelector('.belit-quantity-input').getAttribute('data-belit-id'), belitId);
+        if(belitOrder.querySelector('.belit-quantity-input').getAttribute('data-belit-id') == belitId){
+            inputElem.value = String(belitQuantity + 1);
+            belitOrder.querySelector('.belit-quantity-input').value = String(belitQuantity + 1);
+            belitOrder.querySelector('.belit-orders-price span:first-of-type').innerHTML = numberWithCommas(belitPrice * (belitQuantity + 1));
+            calculateTotalQuantity();
+            calculateTotalPrice();
+        }
+    })
+}
+// CALL THE 'IncBelitCard' function
+let belitIncDecs = document.querySelectorAll('.belit-card-add-cart-inc-dec');
+Array.from(belitIncDecs).forEach(belitIncDec => {
+    belitIncDec.addEventListener('click', e=>{
+        if(e.target.classList.contains('belit-card-inc') || e.target.classList.contains('fa-plus')){
+            // console.log("SUCCESS");
+            IncBelitCard(belitIncDec.querySelector('.belit-card-inc'))
+        }
+    })
+})
 
 
 
+// *** 'Increase' ticket quantity with 'belit-card-inc button' in Order section
+const IncOrderBelit = (buttonElem) => {
+    let inputElem = buttonElem.previousElementSibling;
+    let belitQuantity = Number(inputElem.value)
+    let belitId = inputElem.getAttribute('data-belit-id');
+    let belit = buttonElem.parentElement.parentElement.parentElement;
+    let belitPriceElem = belit.querySelector('.belit-orders-price span:first-of-type');
+    let belitUnitPrice = parseToNumber(belitPriceElem.innerHTML) / belitQuantity;
+    console.log(inputElem, belitQuantity, belitId, belit, belitUnitPrice);
+    // No we can process further things on the data
+    if (belitQuantity == 150){
+        console.log('Belit quantity exceeded from 150 unit');
+        return null;
+    }
+    // Make ajax call to increase ticket by one
+    // let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
+    // let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': belitQuantity+1}
+    // sendPostData(url, data)
+    // .then(data => {
+    //     console.log(data);
+    // })
+    // .catch(error => {
+    //     console.log(error);
+    // })
 
-// ** 'Decrease' ticket quantity with 'inc button' in Belit section
+    // ! Simulate successfully changed belit quantity
+    // After successfully increased belit quantity, update the front with 'belit-input' and 'orderfill'
+    let belitCards = document.querySelectorAll('.belit-card');
+    Array.from(belitCards).forEach(belitCard => {
+        // console.log(belitCard.querySelector('.belit-quantity-input').getAttribute('data-belit-id'), belitId);
+        if(belitCard.querySelector('.belit-quantity-input').getAttribute('data-belit-id') == belitId){
+            inputElem.value = String(belitQuantity + 1);
+            belitPriceElem.innerHTML = numberWithCommas(belitUnitPrice * (belitQuantity + 1));
+            belitCard.querySelector('.belit-quantity-input').value = String(belitQuantity + 1);
+            calculateTotalQuantity();
+            calculateTotalPrice();
+        }
+    })
+}
+// CALL THE 'IncOrderBelit' function
+let belitOrderIncs = document.querySelectorAll('.order-fill');
+Array.from(belitOrderIncs).forEach(belitOrderInc => {
+    belitOrderInc.addEventListener('click', e=>{
+        if(e.target.classList.contains('order-fill-button') || e.target.classList.contains('fa-plus')){
+            console.log("SUCCESS");
+            IncOrderBelit(belitOrderInc.querySelector('.belit-card-inc'))
+        }
+    })
+})
 
 
+
+// ??????????????????????????????? DECREASE QUANTITY FUNCTIONS ???????????????
+
+// ** 'Decrease' ticket quantity with 'dec button' in Belit Card section
+
+
+// *** 'Decrease' ticket quantity with 'belit-card-dec button' in Order section
 
 
 

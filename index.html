@@ -45,7 +45,7 @@
   </nav>
   <!-- **** 'header' block in 'base.html/include header.html' **** -->
 
-
+  <input type="hidden" name="cart-id" value="8" class="cart-id">
 
   <!-- ******* 'content' block in 'base.html' ******* -->
   <main class="mx-auto">
@@ -149,15 +149,15 @@
           <!-- Add belit to cart part -->
           <div class="belit-card-add-cart">
             <!-- ? If belit not in the user cart or not selected by the user yet -->
-            <button class="belit-card-add-cart-button  btn d-flex justify-content-center align-items-center px-0 d-none" data-belit-id="111">
+            <button class="belit-card-add-cart-button  btn d-flex justify-content-center align-items-center px-0" data-belit-id="111">
               خرید بلیط
             </button>
             <!-- ! If current belit already is in the cart or user has selected the belit -->
-            <div class="belit-card-add-cart-inc-dec d-flex justify-content-between align-items-center">
+            <div class="belit-card-add-cart-inc-dec d-flex justify-content-between align-items-center d-none">
               <button class="belit-card-dec">
                 <i class="fas fa-minus"></i>
               </button>
-              <input class="text-center belit-quantity-input" type="number" data-belit-id="111" data-ticketsold-id="" min="1" max="150" value="1">
+              <input class="text-center belit-quantity-input" type="number" data-belit-id="111" min="1" max="150" value="1">
               <button class="belit-card-inc">
                 <i class="fas fa-plus"></i>
               </button>
@@ -222,7 +222,7 @@
               <button class="belit-card-dec">
                 <i class="fas fa-minus"></i>
               </button>
-              <input class="text-center belit-quantity-input" type="number" data-belit-id="222" data-ticketsold-id="" min="1" max="150" value="1" autofocus="false">
+              <input class="text-center belit-quantity-input" type="number" data-belit-id="222" min="1" max="150" value="1" autofocus="false">
               <button class="belit-card-inc">
                 <i class="fas fa-plus"></i>
               </button>
@@ -286,7 +286,7 @@
               <button class="belit-card-dec">
                 <i class="fas fa-minus"></i>
               </button>
-              <input class="text-center belit-quantity-input" type="number" data-belit-id="111" data-ticketsold-id="" min="1" max="150" value="1" autofocus="false">
+              <input class="text-center belit-quantity-input" type="number" data-belit-id="333" min="1" max="150" value="1" autofocus="false">
               <button class="belit-card-inc">
                 <i class="fas fa-plus"></i>
               </button>
@@ -351,7 +351,7 @@
               <button class="belit-card-dec">
                 <i class="fas fa-minus"></i>
               </button>
-              <input class="text-center belit-quantity-input" type="number" data-belit-id="444" data-ticketsold-id="" min="1" max="150" value="1" autofocus="false">
+              <input class="text-center belit-quantity-input" type="number" data-belit-id="444" min="1" max="150" value="1" autofocus="false">
               <button class="belit-card-inc">
                 <i class="fas fa-plus"></i>
               </button>
@@ -416,7 +416,7 @@
               <button class="belit-card-dec">
                 <i class="fas fa-minus"></i>
               </button>
-              <input class="text-center belit-quantity-input" type="number" data-belit-id="555" data-ticketsold-id="" min="1" max="150" value="1" autofocus="false">
+              <input class="text-center belit-quantity-input" type="number" data-belit-id="555" min="1" max="150" value="1" autofocus="false">
               <button class="belit-card-inc">
                 <i class="fas fa-plus"></i>
               </button>
@@ -481,7 +481,7 @@
               <button class="belit-card-dec">
                 <i class="fas fa-minus"></i>
               </button>
-              <input class="text-center belit-quantity-input" type="number" data-belit-id="666" data-ticketsold-id="" min="1" max="150" value="1" autofocus="false">
+              <input class="text-center belit-quantity-input" type="number" data-belit-id="666" min="1" max="150" value="1" autofocus="false">
               <button class="belit-card-inc">
                 <i class="fas fa-plus"></i>
               </button>
@@ -517,7 +517,7 @@
             </p>
             <div class="d-flex justify-content-center align-items-center">
               <button class="order-fill-button belit-card-dec btn"><i class="fas fa-minus"></i></button>
-              <input type="number" data-belit-id="111" data-ticketsold-id="" value="1" min="1" max="150" maxlength="3" class="order-fill-input belit-quantity-input">
+              <input type="number" data-belit-id="111" value="1" min="1" max="150" maxlength="3" class="order-fill-input belit-quantity-input">
               <button class="order-fill-button belit-card-inc btn"><i class="fas fa-plus"></i></button>
             </div>
           </div> -->
@@ -532,7 +532,7 @@
             </p>
             <div class="d-flex justify-content-center align-items-center">
               <button class="order-fill-button belit-card-dec btn"><i class="fas fa-minus"></i></button>
-              <input type="number" data-belit-id="222" data-ticketsold-id="" value="1" min="10" max="150" maxlength="3" class="order-fill-input belit-quantity-input">
+              <input type="number" data-belit-id="222" value="1" min="10" max="150" maxlength="3" class="order-fill-input belit-quantity-input">
               <button class="order-fill-button belit-card-inc btn"><i class="fas fa-plus"></i></button>
             </div>
           </div> -->
