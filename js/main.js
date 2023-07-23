@@ -139,9 +139,9 @@ Array.from(belitCards).forEach(belitCard => {
               <span>${belitPrice}</span>&nbsp;<span style="font-size: 12px;">تومان</span>
             </p>
             <div class="d-flex justify-content-center align-items-center">
-              <button class="order-fill-button belit-card-dec btn"><i class="fas fa-minus"></i></button>
+              <button class="order-fill-button belit-card-dec order-fill-button-dec btn"><i class="fas fa-minus order-fill-button-dec"></i></button>
               <input type="number" data-belit-id="${belit_id}" data-ticketsold-id="" value="1" min="1" max="150" maxlength="3" class="order-fill-input belit-quantity-input">
-              <button class="order-fill-button belit-card-inc btn"><i class="fas fa-plus"></i></button>
+              <button class="order-fill-button belit-card-inc order-fill-button-inc btn"><i class="fas fa-plus order-fill-button-inc"></i></button>
             </div>`
             newOrderElement.innerHTML = newOrderText;
             belitOrdersBox.appendChild(newOrderElement);
@@ -193,13 +193,19 @@ const IncBelitCard = (buttonElem) => {
         }
     })
 }
-// CALL THE 'IncBelitCard' function
+// CALL THE 'IncBelitCard' or 'DecBelitCard' function
 let belitIncDecs = document.querySelectorAll('.belit-card-add-cart-inc-dec');
 Array.from(belitIncDecs).forEach(belitIncDec => {
     belitIncDec.addEventListener('click', e=>{
-        if(e.target.classList.contains('belit-card-inc') || e.target.classList.contains('fa-plus')){
+        // 
+        // "Increase" belit quantity
+        if(e.target.classList.contains('belit-card-inc-button')){
             // console.log("SUCCESS");
             IncBelitCard(belitIncDec.querySelector('.belit-card-inc'))
+        }
+        // "Decrease" belit quantity
+        else if(e.target.classList.contains('belit-card-dec-button')){
+            DecBelitCard(belitIncDec.querySelector('.belit-card-dec'));
         }
     })
 })
@@ -211,10 +217,11 @@ const IncOrderBelit = (buttonElem) => {
     let inputElem = buttonElem.previousElementSibling;
     let belitQuantity = Number(inputElem.value)
     let belitId = inputElem.getAttribute('data-belit-id');
-    let belit = buttonElem.parentElement.parentElement.parentElement;
+    let belit = buttonElem.parentElement.parentElement;
     let belitPriceElem = belit.querySelector('.belit-orders-price span:first-of-type');
     let belitUnitPrice = parseToNumber(belitPriceElem.innerHTML) / belitQuantity;
-    console.log(inputElem, belitQuantity, belitId, belit, belitUnitPrice);
+    console.log(belitQuantity);
+    // console.log(inputElem, belitQuantity, belitId, belit, belitUnitPrice);
     // No we can process further things on the data
     if (belitQuantity == 150){
         console.log('Belit quantity exceeded from 150 unit');
@@ -245,15 +252,30 @@ const IncOrderBelit = (buttonElem) => {
         }
     })
 }
-// CALL THE 'IncOrderBelit' function
-let belitOrderIncs = document.querySelectorAll('.order-fill');
-Array.from(belitOrderIncs).forEach(belitOrderInc => {
-    belitOrderInc.addEventListener('click', e=>{
-        if(e.target.classList.contains('order-fill-button') || e.target.classList.contains('fa-plus')){
-            console.log("SUCCESS");
-            IncOrderBelit(belitOrderInc.querySelector('.belit-card-inc'))
+// CALL THE 'IncOrderBelit' or 'DecOrderBelit' function
+let belitOrderBox = document.querySelector('.belit-orders-box');
+belitOrderBox.addEventListener('click', e => {
+    // Call 'IncOrderBelit' to increase belit quantity
+    if(e.target.classList.contains('order-fill-button-inc')){
+        if(e.target.tagName == 'BUTTON'){
+            var incButt = e.target
         }
-    })
+        else if(e.target.tagName == 'I'){
+            var incButt = e.target.parentElement
+        }
+        IncOrderBelit(incButt)
+    }
+    // call 'DecOrderBelit' to decrease belit quantity
+    else if(e.target.classList.contains('order-fill-button-dec')){
+        if(e.target.tagName == 'BUTTON'){
+            var incButt = e.target
+        }
+        else if(e.target.tagName == 'I'){
+            var incButt = e.target.parentElement
+        }
+        DecOrderBelit(incButt);
+    }
+
 })
 
 
@@ -261,10 +283,125 @@ Array.from(belitOrderIncs).forEach(belitOrderInc => {
 // ??????????????????????????????? DECREASE QUANTITY FUNCTIONS ???????????????
 
 // ** 'Decrease' ticket quantity with 'dec button' in Belit Card section
+const DecBelitCard = (buttonElem) => {
+    let inputElem = buttonElem.nextElementSibling;
+    let belitQuantity = Number(inputElem.value)
+    let belitId = inputElem.getAttribute('data-belit-id');
+    let belit = buttonElem.parentElement.parentElement.parentElement;
+    let belitPrice = parseToNumber(belit.querySelector('.belit-price span:first-of-type').innerHTML);
+    // console.log(inputElem, belitQuantity, belitId, belit, belitPrice);
+    // No we can process further things on the data
+    // Make ajax call to decrease ticket by one. If quantity == 1, call 'delete-ticket-cart' in ajax call
+    // if(belitQuantity-1 > 0){
+    //     let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
+    //     let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': belitQuantity-1}
+    // }
+    // else{
+    //     let url = `${location.protocol}://${location.hostname}/cart/delete-ticket-cart`;
+    //     let data = {'cart-id': cartId, 'ticket-id': belitId}
+    // }
+    // sendPostData(url, data)
+    // .then(data => {
+    //     console.log(data);
+    // })
+    // .catch(error => {
+    //     console.log(error);
+    // })
+
+    // ! Simulate successfully changed belit quantity
+    // After successfully decrease-delete belit quantity, update the front with 'belit-input' and 'orderfill'
+    let belitOrders = document.querySelectorAll('.belit-orders');
+    Array.from(belitOrders).forEach(belitOrder => {
+        // console.log(belitOrder.querySelector('.belit-quantity-input').getAttribute('data-belit-id'), belitId);
+        if(belitOrder.querySelector('.belit-quantity-input').getAttribute('data-belit-id') == belitId){
+            // If new quantity is zero, delete the belit from the Order, and bring back 'buy-button' in Belit-Card section
+            if(belitQuantity - 1 > 0){
+                inputElem.value = String(belitQuantity - 1);
+                belitOrder.querySelector('.belit-quantity-input').value = String(belitQuantity - 1);
+                belitOrder.querySelector('.belit-orders-price span:first-of-type').innerHTML = numberWithCommas(belitPrice * (belitQuantity - 1));
+            }
+            else{
+                let belitInputIncDec = buttonElem.parentElement;
+                belitInputIncDec.animation = 'fade-out ease-in-out .2s';
+                belitOrder.remove();
+                setTimeout(()=>{belitInputIncDec.classList.add('d-none')}, 200)
+                var belitAddButton = belitInputIncDec.previousElementSibling;
+                setTimeout(()=> belitAddButton.classList.remove('d-none'), 200)
+                // To be able repeat this process smooth, we need to remove animation from current style
+                setTimeout(()=> {
+                    belitInputIncDec.style.animation = null
+                }, 50)
+                // belit.querySelector('.belit-card-add-cart-button').classList.remove()
+            }
+            calculateTotalQuantity();
+            calculateTotalPrice();
+            checkHasOrder();
+        }
+    })
+}
 
 
 // *** 'Decrease' ticket quantity with 'belit-card-dec button' in Order section
+const DecOrderBelit = (buttonElem) => {
+    let inputElem = buttonElem.nextElementSibling;
+    let belitQuantity = Number(inputElem.value)
+    let belitId = inputElem.getAttribute('data-belit-id');
+    let belitOrder = buttonElem.parentElement.parentElement;
+    let belitPriceElem = belitOrder.querySelector('.belit-orders-price span:first-of-type');
+    let belitUnitPrice = parseToNumber(belitPriceElem.innerHTML) / belitQuantity;
+    // No we can process further things on the data
+    if (belitQuantity == 150){
+        console.log('Belit quantity exceeded from 150 unit');
+        return null;
+    }
+    // Make ajax call to decrease ticket by one. If quantity == 1, call 'delete-ticket-cart' in ajax call
+    // if(belitQuantity-1 > 0){
+    //     let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
+    //     let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': belitQuantity-1}
+    // }
+    // else{
+    //     let url = `${location.protocol}://${location.hostname}/cart/delete-ticket-cart`;
+    //     let data = {'cart-id': cartId, 'ticket-id': belitId}
+    // }
+    // sendPostData(url, data)
+    // .then(data => {
+    //     console.log(data);
+    // })
+    // .catch(error => {
+    //     console.log(error);
+    // })
 
+    // ! Simulate successfully changed belit quantity
+    // After successfully decrease-delete belit quantity, update the front with 'belit-input' and 'orderfill'
+    let belitCards = document.querySelectorAll('.belit-card');
+    Array.from(belitCards).forEach(belitCard => {
+        if(belitCard.querySelector('.belit-quantity-input').getAttribute('data-belit-id') == belitId){
+            // If new quantity is zero, delete the belit from the Order, and bring back 'buy-button' in Belit-Card section
+            if(belitQuantity - 1 > 0){
+                // Change values for Order section
+                inputElem.value = String(belitQuantity - 1);
+                belitPriceElem.innerHTML = numberWithCommas(belitUnitPrice * (belitQuantity - 1));
+                belitCard.querySelector('.belit-quantity-input').value = belitQuantity - 1;
+            }
+            else{
+                let belitCardIncDec = belitCard.querySelector('.belit-card-add-cart-inc-dec');
+                belitCardIncDec.animation = 'fade-out ease-in-out .2s';
+                belitOrder.remove();
+                setTimeout(()=>{belitCardIncDec.classList.add('d-none')}, 200)
+                var belitAddButton = belitCardIncDec.previousElementSibling;
+                setTimeout(()=> belitAddButton.classList.remove('d-none'), 200)
+                // To be able repeat this process smooth, we need to remove animation from current style
+                setTimeout(()=> {
+                    belitCardIncDec.style.animation = null
+                }, 50)
+                // belit.querySelector('.belit-card-add-cart-button').classList.remove()
+            }
+            calculateTotalQuantity();
+            calculateTotalPrice();
+            checkHasOrder();
+        }
+    })
+}
 
 
 // *** Add to cart button
