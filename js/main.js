@@ -193,9 +193,10 @@ const IncBelitCard = (buttonElem) => {
         }
     })
 }
-// CALL THE 'IncBelitCard' or 'DecBelitCard' function
+// CALL THE 'IncBelitCard' or 'DecBelitCard' or 'ChangeBelitCardQuantity' functions
 let belitIncDecs = document.querySelectorAll('.belit-card-add-cart-inc-dec');
 Array.from(belitIncDecs).forEach(belitIncDec => {
+    // increase or decrease belit quantity using buttons
     belitIncDec.addEventListener('click', e=>{
         // 
         // "Increase" belit quantity
@@ -207,6 +208,10 @@ Array.from(belitIncDecs).forEach(belitIncDec => {
         else if(e.target.classList.contains('belit-card-dec-button')){
             DecBelitCard(belitIncDec.querySelector('.belit-card-dec'));
         }
+    })
+    // change belit quantity directly using 'input'
+    belitIncDec.querySelector('.belit-quantity-input').addEventListener('keyup', e => {
+        ChangeBelitCardQuantity(belitIncDec.querySelector('.belit-quantity-input'));
     })
 })
 
@@ -220,7 +225,6 @@ const IncOrderBelit = (buttonElem) => {
     let belit = buttonElem.parentElement.parentElement;
     let belitPriceElem = belit.querySelector('.belit-orders-price span:first-of-type');
     let belitUnitPrice = parseToNumber(belitPriceElem.innerHTML) / belitQuantity;
-    console.log(belitQuantity);
     // console.log(inputElem, belitQuantity, belitId, belit, belitUnitPrice);
     // No we can process further things on the data
     if (belitQuantity == 150){
@@ -275,8 +279,14 @@ belitOrderBox.addEventListener('click', e => {
         }
         DecOrderBelit(incButt);
     }
-
 })
+// Call the 'ChangeOrderBelitQuantity' to change ticket quantity from OrderBelit input directly
+belitOrderBox.addEventListener('keyup', e => {
+    if (e.target.tagName == 'INPUT'){
+        ChangeOrderBelitQuantity(e.target);
+    }
+})
+
 
 
 
@@ -394,7 +404,6 @@ const DecOrderBelit = (buttonElem) => {
                 setTimeout(()=> {
                     belitCardIncDec.style.animation = null
                 }, 50)
-                // belit.querySelector('.belit-card-add-cart-button').classList.remove()
             }
             calculateTotalQuantity();
             calculateTotalPrice();
@@ -404,132 +413,125 @@ const DecOrderBelit = (buttonElem) => {
 }
 
 
-// *** Add to cart button
-// const addCartButtons = document.querySelectorAll('.add-to-cart');
-// Array.from(addCartButtons).forEach(cartButton => {
-//     cartButton.addEventListener('click', e => {
-//         e.preventDefault();
-//         let url = 'http://127.0.0.1:8000/add-product-cart';
-//         let data = {product_id: cartButton.getAttribute('data-product-id'), product_number: 1};
-//         let err = 'ارتباط با سرور مشکل دارد';
-//         sendPostData(url, data, err)
-//         .then(data => {
-//             console.log(data);
-//             if(data.status == 200){
-//                 Array.from(cartButton.parentElement.children).forEach(elem => {
-//                     if(elem.hasAttribute('success')){
-//                         elem.classList.remove('d-none');
-//                         setTimeout(() => {
-//                             elem.classList.add('d-none');
-//                         }, 3000);
-//                     }
-//                 })
-//             }
-//         })
-//         .catch(err => {
-//             console.log(err);
-//         })
-//     })
-// })
 
 
+// ******************************* Change belit quantity using input field directly **********
 
-// *** Send 'pr-form' data to server using Ajax ***
-// * NOTE: When validating forms using javascript, it is better to to let JS do all the validation like check if the input is email, required and etc
-// let prForm = document.forms['pr-form'];
-// let prForm = document.querySelector('[name="pr-form"]')
+// *** Change ticket quantity using 'Belit Card input'
+const ChangeBelitCardQuantity = (inputElem) => {
+    const belitId = inputElem.getAttribute('data-belit-id');
+    let newQuantity = Number(inputElem.value);
+    const belitCardElem = inputElem.parentElement.parentElement.parentElement;
+    const belitUnitPrice = parseToNumber(belitCardElem.querySelector('.belit-price span:first-of-type').innerHTML);
+    if (newQuantity > 150){
+        // console.log('quantity cannot be greater than 150');
+        newQuantity = 150;
+    }
+    // Now we can process further things on the data
+    // Make ajax call to change ticket quantity. If newQuantity == 0, call 'delete-ticket-cart' in ajax call
+    // if(newQuantity > 0){
+    //     let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
+    //     let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': newQuantity}
+    // }
+    // else{
+    //     let url = `${location.protocol}://${location.hostname}/cart/delete-ticket-cart`;
+    //     let data = {'cart-id': cartId, 'ticket-id': belitId}
+    // }
+    // sendPostData(url, data)
+    // .then(data => {
+    //     console.log(data);
+    // })
+    // .catch(error => {
+    //     console.log(error);
+    // })
+
+    // ! Now simulate successful ajax call
+    // Update OrderBelit with new data
+    let belitOrderBox = document.querySelector('.belit-orders-box');
+    Array.from(belitOrderBox.children).forEach(belitOrder => {
+        if (belitOrder.querySelector('.order-fill-input').getAttribute('data-belit-id') == belitId){
+            if(newQuantity > 0){
+                inputElem.value = newQuantity;
+                belitOrder.querySelector('.order-fill-input').value = newQuantity;
+                belitOrder.querySelector('.belit-orders-price span:first-of-type').innerHTML = numberWithCommas(belitUnitPrice*newQuantity)
+            }
+            else{
+                inputElem.value = 1;
+                let belitCardIncDec = belitCardElem.querySelector('.belit-card-add-cart-inc-dec');
+                belitCardIncDec.animation = 'fade-out ease-in-out .2s';
+                belitOrder.remove();
+                setTimeout(()=>{belitCardIncDec.classList.add('d-none')}, 200)
+                var belitAddButton = belitCardIncDec.previousElementSibling;
+                setTimeout(()=> belitAddButton.classList.remove('d-none'), 200)
+                // To be able repeat this process smooth, we need to remove animation from current style
+                setTimeout(()=> {
+                    belitCardIncDec.style.animation = null
+                }, 50)
+            }
+        }
+    })
+    calculateTotalQuantity();
+    calculateTotalPrice();
+    checkHasOrder();
+}
 
 
+// *** Change ticket quantity using 'Order Belit input'
+const ChangeOrderBelitQuantity = (inputElem) => {
+    const belitId = inputElem.getAttribute('data-belit-id');
+    let newQuantity = Number(inputElem.value);
+    let belitOrder = inputElem.parentElement.parentElement;
+    // const belitUnitPrice = parseToNumber(belitCardElem.querySelector('.belit-price span:first-of-type').innerHTML);
+    if (newQuantity > 150){
+        // console.log('quantity cannot be greater than 150');
+        newQuantity = 150;
+    }
+    // Now we can process further things on the data
+    // Make ajax call to change ticket quantity. If newQuantity == 0, call 'delete-ticket-cart' in ajax call
+    // if(newQuantity > 0){
+    //     let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
+    //     let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': newQuantity}
+    // }
+    // else{
+    //     let url = `${location.protocol}://${location.hostname}/cart/delete-ticket-cart`;
+    //     let data = {'cart-id': cartId, 'ticket-id': belitId}
+    // }
+    // sendPostData(url, data)
+    // .then(data => {
+    //     console.log(data);
+    // })
+    // .catch(error => {
+    //     console.log(error);
+    // })
 
-// ** Send data to server **
-// * Helper function using 'async'
-// let sendPrData = async (url=new String, form=new FormData ,errorMsg=new String) => {
-//     const csrftoken = getCookie('csrftoken');
-//     try{
-//         let response = await fetch(url, {
-//             method: 'POST',
-//             body: form,
-//             credentials: 'include',
-//             mode: 'cors', // Can send CSRF token to another domain.
-//             headers: {
-//                 'X-CSRFToken': csrftoken,
-//             },
-//         })
-//         console.log(response);
-//         if (response.status !== 200){
-//             return Promise.reject(errorMsg);
-//         }
-//         return await response.json();
-//     }
-//     catch(err){
-//         if(err instanceof TypeError){
-//             return Promise.reject('اتصال با سرور برقرار نشد');
-//         }
-//     }
-// }
-
-
-
-// * This Eventlistener used for submitting the PrForm and validate user data in front-end
-// prForm.addEventListener('submit', e =>{
-//     e.preventDefault();
-//     let form = new FormData(prForm);
-//     let email = form.get('email');
-//     let content = form.get('content');
-//     if(!email || !validateEmail(email) || !content){
-//         // * Below block is more soffesticated way to show errors to users but we don't want this for now!
-//         // let formEmailSection = document.querySelector('#form-email-section');
-//         // let errorMessageDiv = document.createElement('div');
-//         // errorMessageDiv.classList.add(['pr-error']);
-//         // let errorMessage = document.createElement('p');
-//         // errorMessageDiv.appendChild(errorMessage);
-//         // formEmailSection.prepend(errorMessageDiv);
-//         // * Following line is way more brief than above block of code
-//         let errorMessage = document.querySelector('#form-email-section > div > p')
-
-//         if(!content){
-//             let errorMessage = document.querySelector('#form-content-section > div > p');
-//             errorMessage.textContent = 'پیام خود را وارد کنید';
-//             let contentInput = document.querySelector('#content-input');
-//             contentInput.style.borderColor = 'red';
-//         }
-
-//         if(!email){
-//             errorMessage.textContent = 'ایمیل خود را وارد کنید';
-//         }
-//         else{
-//             errorMessage.textContent = 'ایمیل خود را به درستی وارد کنید';
-//         }
-//         let emailInput = document.getElementById('email-input');
-//         emailInput.style.borderColor = 'red';
-//     }
-    
-//     // * After sending email and content, clear error messages and redo red borders
-//     else{
-//         document.querySelectorAll('.pr-error > p').forEach(errorP => {
-//             errorP.textContent = '';
-//         })
-//         document.getElementById('email-input').style.borderColor = '#dee2e6';
-//         document.getElementById('content-input').style.borderColor = '#dee2e6';
-
-//         // Send data to server using ajax
-//         sendPrData('http://127.0.0.1:8000/pr', form, 'اطلاعات ارسال نشد')
-//         // sendPrData(url='http://ip.jsontest.com/', form=form, errorMsg='اطلاعات ارسال نشد')
-//         .then(jsonData => {
-//             console.log(jsonData);
-//             document.querySelector('#pr-success').textContent = 'از همکاری شما سپاسگذاریم';
-//         })
-//         .catch(err => {
-//             document.querySelector('#pr-failed').textContent = err;
-//         })
-
-//         // Disable 'pr-box' inputs and buttoms and hide the messages 
-//         setTimeout(()=>{
-//             document.querySelector('#pr-failed').textContent = '';
-//             document.querySelector('#pr-success').textContent = '';
-//             document.getElementById('email-input').disabled = true;
-//             document.getElementById('content-input').disabled = true;
-//             document.querySelector('#send-button').disabled = true;
-//         }, 2000)
-//     }
-// })
+    // ! Now simulate successful ajax call
+    // After successfully change belit quantity, update the front with 'belit-input' and 'orderfill'
+    let belitCards = document.querySelectorAll('.belit-card');
+    Array.from(belitCards).forEach(belitCard => {
+        if(belitCard.querySelector('.belit-quantity-input').getAttribute('data-belit-id') == belitId){
+            // If new quantity is zero, delete the belit from the Order, and bring back 'buy-button' in Belit-Card section
+            if(newQuantity > 0){
+                // Change values for Order section and BelitCard
+                inputElem.value = newQuantity;
+                let belitUnitPrice = parseToNumber(belitCard.querySelector('.belit-price span:first-of-type').innerHTML)
+                belitOrder.querySelector('.belit-orders-price span:first-of-type').innerHTML = numberWithCommas(belitUnitPrice * newQuantity);
+                belitCard.querySelector('.belit-quantity-input').value = newQuantity;
+            }
+            else{
+                let belitCardIncDec = belitCard.querySelector('.belit-card-add-cart-inc-dec');
+                belitCardIncDec.animation = 'fade-out ease-in-out .2s';
+                belitOrder.remove();
+                setTimeout(()=>{belitCardIncDec.classList.add('d-none')}, 200)
+                var belitAddButton = belitCardIncDec.previousElementSibling;
+                setTimeout(()=> belitAddButton.classList.remove('d-none'), 200)
+                // To be able repeat this process smooth, we need to remove animation from current style
+                setTimeout(()=> {
+                    belitCardIncDec.style.animation = null
+                }, 50)
+            }
+        calculateTotalQuantity();
+        calculateTotalPrice();
+        checkHasOrder();
+        }
+    })
+}
