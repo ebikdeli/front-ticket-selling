@@ -5,11 +5,19 @@
 
 *{
     font-family: 'B Yekan';
-    background: #fefefe;
+    
 }
 
+body{
+    background-color: #FAFAFA;
+}
 
 /* * nav section */
+nav{
+    background-color: #fff;
+    border: 0 !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+}
 
 .nav-top{
     width: 1200px;
@@ -53,11 +61,6 @@ nav i{
     font-size: 22px;
 }
 
-nav i:hover{
-    background-color: var(--orange-color);
-}
-
-
 .header-icons{
     gap: 20px;
 }
@@ -67,7 +70,7 @@ nav i:hover{
 }
 
 .header-icons div:hover{
-    background-color: var(--orange-color);
+    color: var(--orange-color);
     cursor: pointer;
 }
 
@@ -80,6 +83,216 @@ nav i:hover{
     margin-top: 2px;
 }
 
-..header-icons p{
-    
+.header-icons p:hover{
+    color: var(--orange-color);
+}
+
+
+/* * Login-register section */
+.ls-body{
+    width: 415px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.ls-title{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    color: #333333;
+}
+
+.ls-title > h1{
+    font-size: 22px;
+    line-height: 28px;
+}
+
+.ls-title > h3{
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 20px;
+}
+
+.ls-change-buttons{
+    /* background-color: #fafafa; */
+    /* background-color: #fff; */
+    display: block;
+    /* padding: 10px; */
+    margin: 0;
+    border: 0;
+    outline: none;
+    user-select: none;
+}
+
+.ls-buttons{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: flex-end;
+}
+
+/* * These blocks used for Login-Singup button switch (START) */
+.tab.button.active {
+    color: #f27a1a !important;
+    background-color: #fff !important;
+    border: 1px solid #e6e6e6;
+    border-bottom: 0;
+}
+
+.tab.button {
+    width: 100% !important;
+    height: 48px !important;
+    color: #333333;
+    background-color: #f2f2f2;
+    border-radius: 3px 3px 0 0;
+    border: none;
+    border-bottom: none;
+    display: inline-block !important;
+    position: relative;
+}
+
+/* Why this???!!!! */
+/* .q-button.q-secondary {
+    background-color: #fff;
+    color: #f27a1a;
+    border: 1px solid #f27a1a;
+} */
+
+.q-button.q-button-medium {
+    height: 44px;
+    font-size: 16px;
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.q-button {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 400;
+    /* font-family: "Source Sans Pro",sans-serif; */
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.left {
+    float: left;
+}
+
+.rigth{
+    float: right;
+}
+/* * These blocks used for Login-Singup button switch (END) */
+
+
+/* * Login-Singup forms */
+.ls-container{
+    border: 1px solid #e6e6e6;
+    border-top: 0;
+    padding: 35px 40px 40px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+
+/* Social Login */
+.social-account-login-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.social-account-login-buttons .social-login-button:first-child {
+    margin-right: 15px;
+}
+
+.social-account-login-buttons .social-login-button {
+    background-color: #fff;
+    font-size: 16px;
+    border-radius: 6px;
+    border: solid 1px #e6e6e6;
+    padding: 8px 10px;
+    align-items: flex-start;
+    align-self: flex-start;
+    line-height: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all; */
+}
+
+.social-login-button:hover{
+    background-color: #F2F2F2;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex {
+    display: flex;
+}
+
+/* Not needed */
+/* .q-layout {
+    background-color: #fafafa;
+    display: block;
+    padding: 10px;
+    margin: 0;
+    border: 0;
+    font-family: "Source Sans Pro",sans-serif;
+    outline: none;
+    user-select: none;
+} */
+
+.social-account-login-buttons .social-login-button .social-login-icon {
+    margin-right: 15px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.social-account-login-buttons .social-login-button small {
+    font-size: 12px;
+    color: #999999;
+}
+
+/* Rules */
+.guest-user-track-orders {
+    direction: rtl;
+    display: inline-block;
+    color: #666;
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.guest-user-track-orders .clickable-text {
+    color: #333;
+    text-decoration: underline;
+    margin-left: 2.5px;
+    cursor: pointer;
 }
