@@ -195,7 +195,31 @@ nav i{
 /* * These blocks used for Login-Singup button switch (END) */
 
 
-/* * Login-Singup forms */
+/* ! Error section */
+#error-box-wrapper {
+    direction: rtl;
+    color: #d0021b;
+    line-height: 15px;
+    padding: 14px 20px 13px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 3px;
+    background-color: #fff4f6;
+}
+
+#error-box-wrapper .message {
+    font-size: 12px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-weight: 600;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 12px;
+}
+
+/* *** Login-Singup forms */
 .ls-container{
     border: 1px solid #e6e6e6;
     border-top: 0;
@@ -207,6 +231,154 @@ nav i{
     border-bottom-right-radius: 3px;
 }
 
+/* * Login */
+.login {
+    padding: 0;
+    background-color: #fff;
+}
+
+.l-layout {
+    background-color: #fafafa;
+    display: block;
+    padding: 10px;
+    margin: 0;
+    border: 0;
+    /* font-family: "Source Sans Pro",sans-serif; */
+    outline: none;
+    user-select: none;
+}
+
+.q-input-wrapper {
+    display: block;
+    text-align: left;
+}
+
+.q-input-wrapper .q-label {
+    text-align: right;
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.email-input input {
+    height: 44px !important;
+}
+
+.q-input {
+    width: 100% !important;
+    border-radius: 3px !important;
+    background-color: #fafafa !important;
+    outline: none;
+}
+
+.password-wrapper .password {
+    margin-top: 20px;
+    display: flex;
+    position: relative;
+}
+
+.password-wrapper .password .q-input-wrapper {
+    width: 100%;
+}
+
+/* .q-input-wrapper .q-label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0;
+    color: #333;
+    margin-bottom: 10px;
+} */
+
+.password-wrapper .password .q-input-wrapper input {
+    padding-right: 40px;
+}
+
+.q-input-wrapper .q-input {
+    background-color: #ebebeb;
+    font-size: 14px;
+    border: 1px solid #e6e6e6;
+    width: inherit;
+    border-radius: 3px;
+    height: 40px;
+    padding: 10px;
+    color: #666;
+    -webkit-appearance: none;
+}
+
+.password-wrapper .password i {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    color: #999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+}
+
+/* Forget password */
+.forgot-password {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: end;
+}
+
+.forgot-password a {
+    color: #333333;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+}
+
+/* Login-button */
+.q-button.q-fluid {
+    width: 100%;
+}
+
+.q-button.q-primary {
+    background-color: #f27a1a;
+    color: #fff;
+    border: 1px solid #f27a1a;
+}
+
+.q-button.q-button-medium {
+    height: 44px;
+    font-size: 16px;
+}
+
+.q-button {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 400;
+    /* font-family: "Source Sans Pro",sans-serif; */
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.submit {
+    margin-top: 20px;
+    height: 48px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
 
 /* Social Login */
 .social-account-login-buttons {

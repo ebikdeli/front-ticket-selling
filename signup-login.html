@@ -104,22 +104,52 @@
     <div class="ls-title ls-change-buttons">
       <div class="ls-buttons">
         <button class="q-secondary q-button-medium q-button tab button mr-5 left active">
-          <span>Login</span>
+          <span>ورود</span>
         </button>
         <button class="q-secondary q-button-medium q-button tab button right">
-          <span>Sign Up</span>
+          <span>ثبت نام</span>
         </button>
       </div>
     </div>
-    <!-- login-signup forms -->
+    <!-- * login-signup forms -->
     <div class="ls-container">
+      <!-- Error section -->
+      <div id="error-box-wrapper" class="d-none">
+        <i class="bi bi-exclamation-circle"></i>
+        <span class="message">خطا در این قسمت ظاهر می شود</span>
+      </div>
       <!-- Login section -->
-      <div>
-
-      </div class='d-none'>
+      <div class="l-layout login d-none">
+        <form action="to the login-classic-signin url" method="get" id="login-form">
+          <div class="q-input-wrapper email-input">
+            <label class="q-label">پست الکترونیکی</label>
+            <input class="q-input" type="text" id="login-email" list="email-list" name="username-login" autocomplete="username" data-testid="email-input" value="" tabindex="-1">
+          </div>
+          <datalist id="email-list"></datalist>
+          <div class="password-wrapper">
+            <div class="password">
+              <div class="q-input-wrapper">
+                <label class="q-label">رمز عبور</label>
+                <input class="q-input" type="password" name="login-password" id="login-password-input" data-testid="password-input" autocomplete="current-password" value="">
+                <i class="bi bi-eye-slash" id="togglePassword"></i>
+              </div>
+            </div>
+          </div>
+          <div class="forgot-password">
+            <a href="#" dideo-checked="true">
+              <span>فراموشی رمز عبور</span>
+            </a>
+          </div>
+          <button class="q-primary q-fluid q-button-medium q-button submit" id="login-button" type="submit">
+            <span>ورود</span>
+          </button>
+        </form>
+      </div>
       <!-- Signup section -->
-      <div>
-
+      <div class='q-layout register'>
+        <form action="to-signup-url" method="post" id="signup-form">
+          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        </form>
       </div>
       <!-- Social media accounts buttons -->
       <div class="social-account-login-buttons">
@@ -167,7 +197,7 @@
 
 <!-- ** 'scripts' block in 'base.html' -->
 <!-- To use a module in parent script, we should set 'type="module"' for the parent script! -->
-<script src="./js/main.js" type="module"></script>
+<script src="./js/signup-login.js" type="module"></script>
 <!-- ** 'scripts' block in 'base.html' -->
 
 
