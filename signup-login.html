@@ -81,7 +81,7 @@
               <i class="bi bi-person"></i>
               <p>سبد خرید من</p>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -123,14 +123,16 @@
         <form action="to the login-classic-signin url" method="get" id="login-form">
           <div class="q-input-wrapper email-input">
             <label class="q-label">پست الکترونیکی</label>
-            <input class="q-input" type="text" id="login-email" list="email-list" name="username-login" autocomplete="username" data-testid="email-input" value="" tabindex="-1">
+            <input class="q-input" type="text" id="login-email" list="email-list" name="username-login"
+              autocomplete="username" data-testid="email-input" value="" tabindex="-1">
           </div>
           <datalist id="email-list"></datalist>
           <div class="password-wrapper">
             <div class="password">
               <div class="q-input-wrapper">
                 <label class="q-label">رمز عبور</label>
-                <input class="q-input" type="password" name="login-password" id="login-password-input" data-testid="password-input" autocomplete="current-password" value="">
+                <input class="q-input" type="password" name="login-password" id="login-password-input"
+                  data-testid="password-input" autocomplete="current-password" value="">
                 <i class="bi bi-eye-slash" id="togglePassword"></i>
               </div>
             </div>
@@ -148,24 +150,69 @@
       <!-- Signup section -->
       <div class='q-layout register'>
         <form action="to-signup-url" method="post" id="signup-form">
-          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-        </form>
-      </div>
-      <!-- Social media accounts buttons -->
-      <div class="social-account-login-buttons">
-        <div class="btn q-layout social-login-button flex flex-1">
-          <div class="social-login-icon" style="background-color: rgb(241, 66, 54);"><i class="bi bi-google" style="font-size: larger;"></i></div>
-          <div class="flex flex-column">
-            <div>
-              <div style="text-transform: capitalize;">google</div>
-              <small>ورود با</small>
+          <div class="q-input-wrapper email-input">
+            <label class="q-label">پست الکترونیکی</label>
+            <input class="q-input" type="text" id="login-email" list="email-list" name="username-login"
+              autocomplete="username" data-testid="email-input" value="" tabindex="-1">
+          </div>
+          <datalist id="email-list"></datalist>
+          <div class="password-wrapper">
+            <div class="password">
+              <div class="q-input-wrapper">
+                <label class="q-label">رمز عبور</label>
+                <input class="q-input" type="password" name="login-password" id="login-password-input"
+                  data-testid="password-input" autocomplete="current-password" value="">
+                <i class="bi bi-eye-slash" id="togglePassword"></i>
+              </div>
             </div>
+            <p class="q-typography q-paragraph q-initial dark-gray text-end">
+              <span class="password-info-text">رمز عبور شما باید حداقل 6 کاراکتر و حداکثر 30 کاراکتر باشد</span>
+            </p>
+          </div>
+          <div class="gender flex flex-column">
+            <label class="text-end">جنسیت (اختیاری)</label>
+            <div class="button-group flex">
+              <button class="q-gray q-fluid q-button-medium q-button female   border-right-none" type="button">
+                <span>زن</span>
+              </button>
+              <button class="q-gray q-fluid q-button-medium q-button male  " type="button">
+                <span>مرد</span>
+              </button>
+            </div>
+          </div>
+          <div class="marketing-checkbox d-flex justify-content-center align-items-center">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            </div>
+            <span class="ty-text ty-color-soft-gray ty-font-md ty-checkbox-text">من قبول می کنم که اطلاعات شخصی من جهت
+              استفاده در ارسال پیام های تبلیغاتی مورد استفاده قرار بگیرد</span>
+          </div>
+          <div class="ty-display-flex ty-mgt-1">
+            <span class="ty-text ty-color-black ty-font-sm ty-font-w-bold"></span>
+            <span class="ty-text ty-color-soft-gray ty-font-sm ty-mgl-auto"></span>
+          </div>
+      </div>
+    </div>
+
+    </form>
+    </div>
+    <!-- Social media accounts buttons -->
+    <div class="social-account-login-buttons">
+      <div class="btn q-layout social-login-button flex flex-1">
+        <div class="social-login-icon" style="background-color: rgb(241, 66, 54);"><i class="bi bi-google"
+            style="font-size: larger;"></i></div>
+        <div class="flex flex-column">
+          <div>
+            <div style="text-transform: capitalize;">google</div>
+            <small>ورود با</small>
           </div>
         </div>
       </div>
-      <div class="guest-user-track-orders">قوانین و مقررات سایت را&nbsp;
-        <a href="#" class="clickable-text">در اینجا</a>&nbsp;
-      مطالعه کنید</div>
+    </div>
+    <div class="guest-user-track-orders">قوانین و مقررات سایت را&nbsp;
+      <a href="#" class="clickable-text">در اینجا</a>&nbsp;
+      مطالعه کنید
+    </div>
     </div>
   </main>
   <!-- ******* 'content' block in 'base.html' ******* -->

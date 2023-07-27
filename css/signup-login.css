@@ -380,6 +380,129 @@ nav i{
     transition: all 0.3s ease;
 }
 
+/* Signup Form */
+.q-typography.dark-gray {
+    color: #666;
+}
+
+.q-typography.dark-gray {
+    color: #666;
+}
+
+.password-wrapper p {
+    font-size: 12px !important;
+    margin-top: 3px;
+}
+
+.q-typography {
+    margin: 0;
+    font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+.register .gender {
+    margin-top: 20px;
+}
+
+.register .gender label {
+    color: #333333;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.register .gender .button-group {
+    width: 100%;
+}
+
+.register .gender .button-group .female {
+    border-radius: 4px 0 0 4px;
+}
+
+.register .gender .button-group .male {
+    border-radius: 0 4px 4px 0;
+}
+
+.register .gender .button-group button {
+    height: 40px;
+    border: 1px solid #e6e6e6;
+    background-color: #fafafa;
+}
+
+.q-button.q-fluid {
+    width: 100%;
+}
+
+.q-button.q-gray {
+    background-color: #fff;
+    color: #666;
+    border: 1px solid #999;
+}
+
+.q-button.q-button-medium {
+    height: 44px;
+    font-size: 16px;
+}
+
+.border-right-none {
+    border-right: none !important;
+}
+
+/* .q-button {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 400;
+    font-family: "Source Sans Pro",sans-serif;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    border-radius: 3px;
+} */
+
+/* Marketing checkbox */
+.register .marketing-checkbox {
+    direction: rtl;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.form-check {
+    display: block;
+    min-height: 0;
+    padding-left: 1.5em;
+    margin-bottom: 0;
+}
+
+.form-check-input{
+    cursor: pointer;
+    border-color: #999999;
+    border-radius: 2px !important;
+    border-width: 2px;
+    margin: 0;
+    height: 20px;
+    width: 20px;
+    outline: 0;
+    box-shadow: none;
+}
+
+.form-check-input:checked{
+    background-color: #f27a1a;
+    color: #f27a1a;
+    border-color: #f27a1a;
+}
+
+.form-check-input:focus {
+    border-color: #f27a1a;
+    outline: 0;
+    box-shadow: none;
+}
+
 /* Social Login */
 .social-account-login-buttons {
     display: flex;
