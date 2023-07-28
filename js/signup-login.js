@@ -1,65 +1,184 @@
-import {checkRulesBorder, disabledSubmitRule, signUpDataValidation} from './functions.js';
+import {validateEmail} from './functions.js';
 import { sendPostData } from './ajax.js';
 
 
-// * Toggle password visible/invisible (LOGIN FORM)
-const togglePassword = document.querySelector("#togglePassword");
-const loginPassword = document.querySelector("#login-password-input");
 
-togglePassword.addEventListener("click", function () {
-    // toggle the type attribute
-    const type = loginPassword.getAttribute("type") === "password" ? "text" : "password";
-    loginPassword.setAttribute("type", type);
-    
-    // toggle the icon
-    this.classList.toggle("bi-eye");
-});
+// * Toggle password visible/invisible (LOGIN and SIGNUP FORM)
+const togglePasswords = document.querySelectorAll(".togglePassword");
+Array.from(togglePasswords).forEach(togglepassword => {
+    togglepassword.addEventListener("click", function () {
+        // toggle the type attribute
+        const passwordInput = this.previousElementSibling;
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        // const type = loginPassword.getAttribute("type") === "password" ? "text" : "password";
+        passwordInput.setAttribute("type", type);
+        // toggle the icon
+        this.classList.toggle("bi-eye");
+    });
+})
 
-// prevent form submit
-const form = document.querySelector("#login-form");
-form.addEventListener('submit', function (e) {
+
+
+// * Toggle between login button and signup button
+const loginButton = document.querySelector('#login-button');
+const loginSection = document.querySelector('#login-section');
+const signupButton = document.querySelector('#signup-button');
+const signUpSection = document.querySelector('#signup-section');
+
+// If login-button is disable, enable it by click on it then hide the signup form and show signin form
+loginButton.addEventListener('click', e=>{
+    if(!loginButton.classList.contains('active')){
+        signupButton.classList.toggle('active');
+        loginButton.classList.toggle('active');
+        // Hide signup form and show signin form
+        signUpSection.classList.add('d-none');
+        loginSection.classList.remove('d-none');
+    }
+})
+// If signup-button is disable, enable it by click on it then hide the signin form and show signup form
+signupButton.addEventListener('click', e=>{
+    if(!signupButton.classList.contains('active')){
+        loginButton.classList.remove('active');
+        signupButton.classList.add('active');
+        // Hide Signin form and show signup form
+        loginSection.classList.add('d-none');
+        signUpSection.classList.remove('d-none');
+    }
+})
+
+
+
+// * Gender button selection in SignUp Form
+const maleButton = document.querySelector('.male');
+const femaleButton = document.querySelector('.female');
+
+// If not male button active, activate male button and deactive female button (if activated before)
+maleButton.addEventListener('click', e => {
+    if(!maleButton.classList.contains('active')){
+        // If female button active, 
+        if(femaleButton.classList.contains('active')){
+            femaleButton.classList.remove('active');
+            femaleButton.classList.remove('q-secondary');
+            femaleButton.classList.add('q-gray');
+        }
+        femaleButton.classList.add('border-right-none');
+        maleButton.classList.add('active');
+        maleButton.classList.add('q-secondary')
+        maleButton.classList.remove('border-left-none');
+        maleButton.classList.remove('q-gray');
+        document.querySelector('input[name="gender"]').value = 'M'
+    }
+})
+// If not female button active, activate female button and deactive male button (if activated before)
+femaleButton.addEventListener('click', e => {
+    if(!femaleButton.classList.contains('active')){
+        if(maleButton.classList.contains('active')){
+            maleButton.classList.remove('active');
+            maleButton.classList.remove('q-secondary');
+            maleButton.classList.add('q-gray');
+        }
+        maleButton.classList.add('border-left-none');
+        femaleButton.classList.add('active');
+        femaleButton.classList.add('q-secondary');
+        femaleButton.classList.remove('border-right-none');
+        femaleButton.classList.remove('q-gray');
+        document.querySelector('input[name="gender"]').value = 'F'
+    }
+})
+
+
+
+
+
+// *** Validate Login Form or SignUp (LS) Form
+const validateLSForm = (email=new String, password=new String) => {
+    let errorBox = document.querySelector('#error-box-wrapper');
+    let erroMsg = document.querySelector('.message');
+    errorBox.classList.add('d-none');
+    erroMsg.innerHTML = '';
+    let errors = 0;
+    // Process form data
+    if(email.length == 0){
+        errorBox.classList.remove('d-none');
+        erroMsg.innerHTML = 'ایمیل خود را وارد کنید';
+        errors += 1;
+        return false;
+    }
+    else if(email.length > 0 && (!validateEmail(email))){
+        errorBox.classList.remove('d-none');
+        erroMsg.innerHTML = 'ایمیل خود را به درستی وارد کنید';
+        errors += 1;
+        return false;
+    }
+    else if(password.length == 0){
+        errorBox.classList.remove('d-none');
+        erroMsg.innerHTML = 'رمز عبور خود را وارد کنید';
+        errors += 1;
+        return false;
+    }
+    else if(password.length < 6){
+        errorBox.classList.remove('d-none');
+        erroMsg.innerHTML = 'رمز عبور کمتر از 6 کاراکتر است';
+        errors += 1;
+        return false;
+    }
+    else if(password.length > 20){
+        errorBox.classList.remove('d-none');
+        erroMsg.innerHTML = 'رمز عبور بیش از 20 کاراکتر است';
+        errors += 1;
+        return false;
+    }
+    // If there is no error in validation, return true
+        return true;
+}
+
+
+
+// *** Send AJAX request to Login user
+const loginForm = document.querySelector('#login-form');
+loginForm.addEventListener('submit', function(e){
     e.preventDefault();
-});
+    let email = this.querySelector('#login-username').value;
+    let password = this.querySelector('#login-password').value;
+    if (validateLSForm(email, password)) {
+        console.log('PROCEEDS FOR AJAX LOGIN FORM');
+        // let url = `${location.protocol}://${location.hostname}/login/login/`;
+        // let data = {'username': email, 'password': password}
+        // Proceed to send AJAX request
+        // sendPostData(url, data)
+        // .then(data => {
+        //     console.log(data);
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        // })
+    }
+})
 
 
-let acceptButton = document.querySelector('input[type="checkbox"]');
-let submitButton = document.querySelector('#submit-button');
 
-
-// // * Check rules box
-// submitButton.parentElement.addEventListener('click', e => {
-//     e.preventDefault();
-//     const ruleChecked = checkRulesBorder(acceptButton, submitButton);
-//     // * If rule checkbox is checked, validate form data
-//     if(ruleChecked){
-//         const email = document.querySelector('[name="email"]').value;
-//         const password = document.querySelector('[name="password"]').value;
-//         const passwordConfirm = document.querySelector('[name="password-confirm"]').value;
-//         // If data validation was successful, send data to server
-//         if(signUpDataValidation(email, password, passwordConfirm)){
-//             const url = 'http://127.0.0.1:8000/signup';
-//             const data = {email: email, password: password};
-//             const err = 'مشکلی در اتصال پیش آمده';
-//             sendPostData(url, data, err)
-//             .then(data => {
-//                 console.log(data);
-//             })
-//             .catch(err => {
-//                 console.log(err);
-//             })
-//         }
-//     }
-// })
-
-// acceptButton.addEventListener('change', e => {
-//     e.preventDefault();
-//     disabledSubmitRule(submitButton, e);
-// })
-
-
-// NOTE: Because we already added an eventListener for the 'submit' button, 'submit' evenrlistener
-// does not work for the form. So we process form data in the 'click' eventListener of the submit button
-// signUpForm.addEventListener('submit', e => {
-//     e.preventDefault();
-//     // ...
-// })
+// *** Send AJAX request to Signup user
+const signUpForm = document.querySelector('#signup-form');
+signUpForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    let email = this.querySelector('#signup-username').value;
+    let password = this.querySelector('#signup-password').value;
+    if (validateLSForm(email, password)) {
+        console.log('PROCEEDS FOR AJAX SIGNUP FORM');
+        // let url = `${location.protocol}://${location.hostname}/login/signup/`;
+        // let gender = document.querySelector('input[name="gender"]').value;
+        // if (gender.length == 0){
+        //     gender = null;
+        // }
+        // let allowMarketing = document.querySelector('#marketing-verify-checkbox').checked;
+        // let allowPersonalData = document.querySelector('#personal-verify-checkbox').checked;
+        // let data = {'username': email, 'password': password, 'gender': gender, 'marketing': allowMarketing, 'personal': allowPersonalData}
+        // sendPostData(url, data)
+        // .then(data => {
+        //     console.log(data);
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        // })
+    }
+})

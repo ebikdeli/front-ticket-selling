@@ -70,7 +70,7 @@
           </a>
           <div class="header-icons d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-between align-items-center">
-              <i class="bi bi-cart"></i>
+              <i class="bi bi-person"></i>
               <p>ورود</p>
             </div>
             <div class="d-flex justify-content-between align-items-center">
@@ -78,7 +78,10 @@
               <p>علاقه مندی های من</p>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-              <i class="bi bi-person"></i>
+              <div class="cart-quantity d-flex justify-content-between align-items-center">
+                <i class="bi bi-cart"></i>
+                <span>0</span>
+              </div>
               <p>سبد خرید من</p>
             </div>
 
@@ -103,10 +106,10 @@
     <!-- change button -->
     <div class="ls-title ls-change-buttons">
       <div class="ls-buttons">
-        <button class="q-secondary q-button-medium q-button tab button mr-5 left active">
+        <button class="q-secondary q-button-medium q-button tab button mr-5 left active" id="login-button">
           <span>ورود</span>
         </button>
-        <button class="q-secondary q-button-medium q-button tab button right">
+        <button class="q-secondary q-button-medium q-button tab button right" id="signup-button">
           <span>ثبت نام</span>
         </button>
       </div>
@@ -119,11 +122,11 @@
         <span class="message">خطا در این قسمت ظاهر می شود</span>
       </div>
       <!-- Login section -->
-      <div class="l-layout login d-none">
+      <div class="l-layout login" id="login-section">
         <form action="to the login-classic-signin url" method="get" id="login-form">
           <div class="q-input-wrapper email-input">
             <label class="q-label">پست الکترونیکی</label>
-            <input class="q-input" type="text" id="login-email" list="email-list" name="username-login"
+            <input class="q-input" type="text" id="login-username" list="email-list" name="username-login"
               autocomplete="username" data-testid="email-input" value="" tabindex="-1">
           </div>
           <datalist id="email-list"></datalist>
@@ -131,9 +134,9 @@
             <div class="password">
               <div class="q-input-wrapper">
                 <label class="q-label">رمز عبور</label>
-                <input class="q-input" type="password" name="login-password" id="login-password-input"
+                <input class="q-input" type="password" name="password-login" id="login-password"
                   data-testid="password-input" autocomplete="current-password" value="">
-                <i class="bi bi-eye-slash" id="togglePassword"></i>
+                <i class="bi bi-eye-slash togglePassword" id="togglePassword"></i>
               </div>
             </div>
           </div>
@@ -148,11 +151,11 @@
         </form>
       </div>
       <!-- Signup section -->
-      <div class='q-layout register'>
+      <div class='q-layout register d-none' id="signup-section">
         <form action="to-signup-url" method="post" id="signup-form">
           <div class="q-input-wrapper email-input">
             <label class="q-label">پست الکترونیکی</label>
-            <input class="q-input" type="text" id="login-email" list="email-list" name="username-login"
+            <input class="q-input" type="text" id="signup-username" list="email-list" name="username-signup"
               autocomplete="username" data-testid="email-input" value="" tabindex="-1">
           </div>
           <datalist id="email-list"></datalist>
@@ -160,9 +163,9 @@
             <div class="password">
               <div class="q-input-wrapper">
                 <label class="q-label">رمز عبور</label>
-                <input class="q-input" type="password" name="login-password" id="login-password-input"
+                <input class="q-input" type="password" name="password-signup" id="signup-password"
                   data-testid="password-input" autocomplete="current-password" value="">
-                <i class="bi bi-eye-slash" id="togglePassword"></i>
+                <i class="bi bi-eye-slash togglePassword" id="togglePassword"></i>
               </div>
             </div>
             <p class="q-typography q-paragraph q-initial dark-gray text-end">
@@ -172,47 +175,61 @@
           <div class="gender flex flex-column">
             <label class="text-end">جنسیت (اختیاری)</label>
             <div class="button-group flex">
-              <button class="q-gray q-fluid q-button-medium q-button female   border-right-none" type="button">
+              <button class="q-gray q-fluid q-button-medium q-button female border-right-none" type="button">
                 <span>زن</span>
               </button>
-              <button class="q-gray q-fluid q-button-medium q-button male  " type="button">
+              <button class="q-gray q-fluid q-button-medium q-button male" type="button">
                 <span>مرد</span>
               </button>
             </div>
+            <input type="hidden" name="gender" value="">
           </div>
           <div class="marketing-checkbox d-flex justify-content-center align-items-center">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+              <input class="form-check-input" type="checkbox" value="" id="marketing-verify-checkbox">
             </div>
             <span class="ty-text ty-color-soft-gray ty-font-md ty-checkbox-text">من قبول می کنم که اطلاعات شخصی من جهت
               استفاده در ارسال پیام های تبلیغاتی مورد استفاده قرار بگیرد</span>
           </div>
-          <div class="ty-display-flex ty-mgt-1">
+          <div class="personal-checkbox d-flex justify-content-center align-items-center">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="personal-verify-checkbox">
+            </div>
+            <span class="ty-text ty-color-soft-gray ty-font-md ty-checkbox-text">
+              <div>تایید می کنم که اطلاعات شخصی اینجانب طبق
+                <span class="special-text">قوانین و مقررات وبسایت </span>
+                مورد پردازش قرار گیرد
+              </div>
+            </span>
+          </div>
+          <button class="q-primary q-fluid q-button-medium q-button submit" type="submit"
+            data-testid="submit-button"><span>ثبت نام</span></button>
+          <!-- <div class="ty-display-flex ty-mgt-1">
             <span class="ty-text ty-color-black ty-font-sm ty-font-w-bold"></span>
             <span class="ty-text ty-color-soft-gray ty-font-sm ty-mgl-auto"></span>
+          </div> -->
+          <div class="contract flex">
+            <p>کلیک بر روی ثبت نام به این معنی است که شما با&nbsp;<b>قوانین و مقررات </b>وبسایت موافقت می کنید.</p>
           </div>
+        </form>
       </div>
-    </div>
-
-    </form>
-    </div>
-    <!-- Social media accounts buttons -->
-    <div class="social-account-login-buttons">
-      <div class="btn q-layout social-login-button flex flex-1">
-        <div class="social-login-icon" style="background-color: rgb(241, 66, 54);"><i class="bi bi-google"
-            style="font-size: larger;"></i></div>
-        <div class="flex flex-column">
-          <div>
-            <div style="text-transform: capitalize;">google</div>
-            <small>ورود با</small>
+      <!-- Social media accounts buttons -->
+      <div class="social-account-login-buttons">
+        <div class="btn q-layout social-login-button flex flex-1">
+          <div class="social-login-icon" style="background-color: rgb(241, 66, 54);"><i class="bi bi-google"
+              style="font-size: larger;"></i></div>
+          <div class="flex flex-column">
+            <div>
+              <div style="text-transform: capitalize;">google</div>
+              <small>ورود با</small>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="guest-user-track-orders">قوانین و مقررات سایت را&nbsp;
-      <a href="#" class="clickable-text">در اینجا</a>&nbsp;
-      مطالعه کنید
-    </div>
+      <div class="guest-user-track-orders">قوانین و مقررات سایت را&nbsp;
+        <a href="#" class="clickable-text">در اینجا</a>&nbsp;
+        مطالعه کنید
+      </div>
     </div>
   </main>
   <!-- ******* 'content' block in 'base.html' ******* -->
