@@ -538,3 +538,51 @@ const ChangeOrderBelitQuantity = (inputElem) => {
 
 
 
+
+// *** Authentication Pop up interaction
+const belitOrderButton = document.querySelector('.belit-order-payment-button');
+const popupSection = document.querySelector('.popup-section');
+const closeButton = document.querySelector('.close');
+// Show popup when click on order button
+belitOrderButton.addEventListener('click', e => {
+    setTimeout(() => {
+        popupSection.classList.toggle('d-none');
+    }, 160)
+})
+// Close popup when click on 'close' button
+closeButton.addEventListener('click', e=> {
+    popupSection.classList.add('d-none');
+})
+// Close popup when click on 'Escape' key on the keyboard
+document.addEventListener('keyup', e => {
+    if(e.key == 'Escape' && !popupSection.classList.contains('d-none')){
+        popupSection.classList.add('d-none');
+    }
+})
+// Close popup when click outside the popup cadre
+document.addEventListener("click", (e) => {
+    // Check if the filter list parent element exist
+    const isClosest = e.target.closest('#popup-cadre');
+    // If `isClosest` equals falsy & popup has the class `show`
+    // then hide the popup
+    if (!isClosest && (!popupSection.classList.contains("d-none"))) {
+        popupSection.classList.add("d-none");
+    }
+});
+
+
+
+
+// *** Identity Form validation and ajax send
+const identityForm = document.querySelector('form[name="identity-check-form"]');
+identityForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Form submited');
+            console.log(document.querySelector('input[name="first-name"]').value);
+            console.log(document.querySelector('input[name="last-name"]').value);
+            console.log(document.querySelector('input[name="birth-date"]').value);
+            console.log(document.querySelector('input[name="identifier"]').value);
+            console.log(document.querySelector('input[name="agree"]').checked);
+            // let formData = new FormData(identityForm);
+            // console.log([...formData.entries()]);
+})

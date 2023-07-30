@@ -527,6 +527,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     font-size: 26px;
 }
 
+.close:hover{
+    background-color: #e6e6e6;
+}
+
 .VVNHVth4 {
     padding: 0 24px;
 }
@@ -660,7 +664,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .surqca_X .kaRo6NoN {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 12px;
     letter-spacing: .3px;
 }
@@ -686,6 +690,337 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     justify-content: space-between;
 }
 
+.ZMADHewP.cNXlg59M {
+    border: 1px solid #dc2e2e !important;
+}
+
+.css-i44wyl {
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    vertical-align: top;
+}
+
+.ZMADHewP {
+    width: 100%;
+    border-radius: 6px;
+    background: #fafafa;
+}
+
+.css-1bn53lx {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    letter-spacing: 0.00938em;
+    color: rgba(0, 0, 0, 0.87);
+    box-sizing: border-box;
+    cursor: text;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    border-radius: 4px;
+    /* padding-right: 14px; */
+    padding-left: 14px;
+}
+
+.CWqmPVS3 {
+    height: 12px;
+    margin-top: 6px;
+}
+
+.Nd7aFdrR {
+    color: #dc2e2e;
+}
+
+.YpWAd_kY {
+    font-size: 10px;
+}
+
+.YpWAd_kY {
+    font-weight: 400 !important;
+}
+
+
+.ZMADHewP * {
+    border: none !important;
+}
+
+.ZMADHewP input {
+    font-size: 14px;
+}
+
+.ZMADHewP input {
+    padding: 10px !important;
+    color: #333 !important;
+    font-weight: 400 !important;
+}
+
+.css-1uvydh2 {
+    font: inherit;
+    letter-spacing: inherit;
+    color: currentcolor;
+    border: 0px;
+    box-sizing: content-box;
+    background: none;
+    height: 1.4375em;
+    margin: 0px;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+    min-width: 0px;
+    width: 100%;
+    animation-name: mui-auto-fill-cancel;
+    animation-duration: 10ms;
+    padding: 16.5px 0px 16.5px 14px;
+}
+
+.ZMADHewP * {
+    border: none !important;
+}
+
+.css-1nvf7g0 {
+    display: flex;
+    height: 0.01em;
+    max-height: 2em;
+    -webkit-box-align: center;
+    align-items: center;
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 0.54);
+    margin-left: 8px;
+}
+
+.ZMADHewP * {
+    border: none !important;
+}
+
+.Nd7aFdrR {
+    color: #dc2e2e;
+}
+
+.YpWAd_kY {
+    font-size: 10px;
+}
+
+.YpWAd_kY {
+    font-weight: 400 !important;
+}
+
+.mQk9NoTR {
+    margin: 0;
+}
+
+.K8dSF66p {
+    max-width: 100%;
+}
+
+.surqca_X {
+    max-width: 260px;
+    width: 100%;
+    height: 100%;
+}
+
+.CTTAE3TF>* {
+    margin-top: 8px;
+}
+
+.surqca_X .Y9vANfzi {
+    height: 40px;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    background: #fafafa;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.surqca_X .dtZcumdX.kaRo6NoN {
+    color: #d21313;
+}
+
+.surqca_X .dtZcumdX {
+    margin-bottom: 8px;
+    display: block;
+    line-height: 12px;
+    letter-spacing: .3px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.surqca_X .Y9vANfzi.e80bHszM {
+    border: 1px solid #d21313;
+}
+
+.surqca_X .Y9vANfzi {
+    height: 40px;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    background: #fafafa;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.surqca_X .Y9vANfzi .l1iOUiPQ {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+}
+
+.surqca_X .Y9vANfzi .sM5lDC2n {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    font-weight: 400;
+    padding-right: 8px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #333;
+    background: none;
+    text-indent: 12px;
+}
+
+.surqca_X .o_fDlFpW {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 15px;
+    margin-top: 8px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.surqca_X .kaRo6NoN {
+    font-size: 14px;
+    line-height: 12px;
+    letter-spacing: .3px;
+}
+
+.pzMMgeuR {
+    color: #dc2e2e;
+}
+
+.mQk9NoTR {
+    margin: 0;
+}
+
+.L37u5Vnh {
+    height: 35px;
+}
+
+.CTTAE3TF>* {
+    margin-top: 12px;
+}
+
+.L37u5Vnh .SctmRA24 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    gap: 8px;
+}
+
+.L37u5Vnh .SctmRA24 .ITor1IVo {
+    -webkit-appearance: initial;
+    -moz-appearance: initial;
+    appearance: initial;
+    height: 20px;
+    width: 20px;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    background: #fafafa;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.L37u5Vnh .SctmRA24 .hzZ5Csrb .IO5UmHup {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+}
+
+.lkuvt_Og {
+    text-decoration: underline;
+}
+
+.mPs04A4r {
+    font-size: 14px;
+}
+
+.jcmPQqiY {
+    color: #f27a1a;
+}
+
+.mQk9NoTR {
+    margin: 0;
+}
+
+.ecvPfvur {
+    margin-right: 4px !important;
+}
+
+.mPs04A4r {
+    font-size: 14px;
+}
+
+.alE4WpA0 {
+    color: #666;
+}
+
+.mQk9NoTR {
+    margin: 0;
+}
+
+.form-check .form-check-input {
+    float: left;
+    margin-left: -1.5em;
+}
+
+.form-check-input {
+    cursor: pointer;
+    border-color: #999999;
+    border-radius: 2px !important;
+    border-width: 2px;
+    margin: 0;
+    height: 20px;
+    width: 20px;
+    outline: 0;
+    box-shadow: none;
+}
+
+.form-check-input:checked{
+    background-color: #f27a1a;
+    color: #f27a1a;
+    border-color: #f27a1a;
+}
+
+.form-check-input:focus {
+    border-color: #f27a1a;
+    outline: 0;
+    box-shadow: none;
+}
 
 
 
