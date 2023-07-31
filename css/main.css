@@ -1068,3 +1068,28 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .lOByNZrX {
     margin-top: 12px;
 }
+
+
+/* Error box */
+#error-box-wrapper {
+    direction: rtl;
+    color: #d0021b;
+    line-height: 15px;
+    padding: 14px 20px 13px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 3px;
+    background-color: #fff4f6;
+}
+
+#error-box-wrapper .message {
+    font-size: 12px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-weight: 600;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 12px;
+}

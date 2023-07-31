@@ -568,9 +568,13 @@
           <div class="VVNHVth4 W0dfwGUX">
             <p data-testid="WTypography" class="mQk9NoTR mPs04A4r x5a8pADS PczFZ0qG JLvdDDuX">برای شرکت در قرعه کشی باید
               بالای 18 سال سن داشته باشید. با وارد کردن اطلاعات خود، احراز هویت خواهید شد</p>
-            <p data-testid="WTypography" class="mQk9NoTR mPs04A4r x5a8pADS jcmPQqiY YC3XKTkj">نام و نام خانوادگی خود را
+            <p data-testid="WTypography" class="mQk9NoTR mPs04A4r x5a8pADS jcmPQqiY YC3XKTkj">مشخصات خود را
               به صورت صحیح و دقیق وارد کنید</p>
             <form action="" method="post" name="identity-check-form" id="identity-check" class="CTTAE3TF">
+              <div id="error-box-wrapper" class="d-none">
+                <i class="bi bi-exclamation-circle"></i>
+                <span class="message">خطا در این قسمت ظاهر می شود</span>
+              </div>
               <div class="fzJpChZ5">
                 <div class="surqca_X K8dSF66p H_QYMGlc" style="max-width: 225px !important;">
                   <label for=":r3i:" class="dtZcumdX kaRo6NoN" style="color: #333;">نام</label>
@@ -598,7 +602,7 @@
               <!-- Calendar -->
               <div data-testid="w-datepicker">
                 <p data-testid="WTypography" class="mQk9NoTR pJadFwet x5a8pADS PczFZ0qG PebTJIWS v7f8805S">تاریخ تولد</p>
-                <div class="MuiFormControl-root MuiTextField-root ZMADHewP css-i44wyl">
+                <div class="MuiFormControl-root MuiTextField-root ZMADHewP css-i44wyl" style="border: 1px solid #e6e6e6;">
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-1bn53lx">
                     <input aria-invalid="false" autocomplete="off" id=":r38:" placeholder="DD.MM.YYYY" type="date" name="birth-date"

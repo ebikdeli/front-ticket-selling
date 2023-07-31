@@ -1,6 +1,6 @@
 // * When import a module, we should import the script with '.js' extension. JS module rules are weird!
 import getCookie from './csrftoken.js';
-import { validateEmail } from './functions.js';
+import { validateEmail, isNumeric } from './functions.js';
 import {sendPostData} from './ajax.js';
 
 
@@ -577,12 +577,84 @@ document.addEventListener("click", (e) => {
 const identityForm = document.querySelector('form[name="identity-check-form"]');
 identityForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            console.log('Form submited');
-            console.log(document.querySelector('input[name="first-name"]').value);
-            console.log(document.querySelector('input[name="last-name"]').value);
-            console.log(document.querySelector('input[name="birth-date"]').value);
-            console.log(document.querySelector('input[name="identifier"]').value);
-            console.log(document.querySelector('input[name="agree"]').checked);
-            // let formData = new FormData(identityForm);
-            // console.log([...formData.entries()]);
+            // Get form field data with default border color
+            let firstNameElem = document.querySelector('input[name="first-name"]');
+            firstNameElem.parentElement.style.borderColor = '#e6e6e6';
+            let surNameElem = document.querySelector('input[name="last-name"]');
+            surNameElem.parentElement.style.borderColor = '#e6e6e6';
+            let birthDateElem = document.querySelector('input[name="birth-date"]');
+            birthDateElem.parentElement.parentElement.style.borderColor = '#e6e6e6';
+            let identifierElem = document.querySelector('input[name="identifier"]');
+            identifierElem.parentElement.style.borderColor = '#e6e6e6';
+            let agreeElem = document.querySelector('input[name="agree"]');
+            agreeElem.style.borderColor = '#999999';
+            if (agreeElem.checked){
+                agreeElem.style.borderColor = '#f27a1a';
+            }
+            // Error box
+            let errorBox = document.querySelector('#error-box-wrapper');
+            let erroMsg = document.querySelector('.message');
+            errorBox.classList.add('d-none');
+            erroMsg.innerHTML = '';
+            let errors = 0;
+            // Process form data
+            if(firstNameElem.value.length == 0){
+                firstNameElem.parentElement.style.borderColor = '#d21313';
+                errorBox.classList.remove('d-none');
+                erroMsg.innerHTML = 'نام کوچک خود را وارد کنید';
+                errors += 1;
+                return false;
+            }
+            else if(surNameElem.value.length == 0){
+                surNameElem.parentElement.style.borderColor = '#d21313';
+                errorBox.classList.remove('d-none');
+                erroMsg.innerHTML = 'نام خانوادگی خود را وارد';
+                errors += 1;
+                return false;
+            }
+            else if(birthDateElem.value.length == 0){
+                birthDateElem.parentElement.parentElement.style.borderColor = '#d21313';
+                errorBox.classList.remove('d-none');
+                erroMsg.innerHTML = 'تاریخ تولد خود را وارد کنید';
+                errors += 1;
+                return false;
+            }
+            else if(identifierElem.value.length == 0){
+                identifierElem.parentElement.style.borderColor = '#d21313';
+                errorBox.classList.remove('d-none');
+                erroMsg.innerHTML = 'شماره ملی خود را وارد کنید';
+                errors += 1;
+                return false;
+            }
+            else if(identifierElem.value.length !== 10 || (identifierElem.value.length === 10 && !isNumeric(identifierElem.value))){
+                identifierElem.parentElement.style.borderColor = '#d21313';
+                errorBox.classList.remove('d-none');
+                erroMsg.innerHTML = 'شماره ملی خود را به درستی وارد کنید';
+                errors += 1;
+                return false;
+            }
+            else if(!agreeElem.checked){
+                agreeElem.style.borderColor = '#d21313';
+                errorBox.classList.remove('d-none');
+                erroMsg.innerHTML = 'با قوانین موافقت نکرده اید';
+                errors += 1;
+                return false;
+            }
+            // If no error proceed to send data in AJAX request
+            if(errors == 0){
+                let url = `${location.protocol}://${location.hostname}/login/...`;
+                let data = {'first-name': firstNameElem.value,
+                            'last-name': surNameElem.value,
+                            'birth-date': birthDateElem.value,
+                            'identifier': identifierElem.value}
+                // sendPostData(url, data)
+                // .then(data => {
+                //     console.log(data);
+                // })
+                // .catch(error => {
+                //     console.log(error);
+                // })
+                console.log(url);
+                console.log(data);
+            }
 })

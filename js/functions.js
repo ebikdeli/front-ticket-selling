@@ -143,6 +143,14 @@ const signInDataValidation = (email, password) => {
 }
 
 
+// Check if a number is totally numeric
+function isNumeric(str) {
+    if (typeof str != "string") return false // we only process strings!  
+    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+           !isNaN(parseInt(str)) && (!str.includes(".")) // ...and ensure strings of whitespace fail
+}
+
+
 export {validateEmail, addOne, minuseOne, 
     checkCartQuantity, checkRulesBorder, disabledSubmitRule,
-    signUpDataValidation, signInDataValidation};
+    signUpDataValidation, signInDataValidation, isNumeric};
