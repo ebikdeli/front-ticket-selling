@@ -22,13 +22,13 @@
 
 
   <!-- ***** 'head' block in 'base.html' -->
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/my-tickets.css">
   <!-- ***** 'head' block in 'base.html' -->
 
 
 
   <!-- ** 'title' block in 'base.html' ** -->
-  <title>Welcome to trenydol</title>
+  <title>بلیط های من</title>
   <!-- ** 'title' block in 'base.html' ** -->
 
 
@@ -48,13 +48,52 @@
 
 
   <!-- ******* 'content' block in 'base.html' ******* -->
-  <main>
+  <main class="mx-auto">
+    <div class="ticket-title">
+        <p>لیست بلیط های من</p>
+    </div>
+    <section class="my-ticket-list my-3">
+        <!-- Each ticket (START) -->
+        <div class="ticket">
+            <!-- ticket status -->
+            <div class="status status-loss">
+                <p class="m-0">متاسفانه شما برنده نشدید</p>
+                <span>&#x1F61E;</span>
+            </div>
+            <!-- <div class="status status-win">
+                <p class="m-0">تبریک، شما برنده شدید</p>
+                <span>&#x1F603;</span>
+            </div> -->
+            <!--ticket name -->
+            <div class="name">
+                <p>رنو کلیو 5 لیتری</p>
+                <div>
+                    <i class="bi bi-check2"></i>
+                    <span>قرعه کشی به اتمام رسیده</span>
+                </div>
+            </div>
+            <!-- ticket image-price -->
+            <div class="image-price">
 
+            </div>
+            <!-- ticket date and detail -->
+            <div class="date-detail">
+
+            </div>
+            <!-- ticket text -->
+            <div></div>
+        </div>
+        <!-- Each ticket (END) -->
+        <div class="ticket">
+            <div class="status status-win">
+                <p class="m-0">تبریک، شما برنده شدید</p>
+                <span>&#x1F603;</span>
+            </div>
+        </div>
+    </section>
   </main>
   <!-- ******* 'content' block in 'base.html' ******* -->
 
-
-  <div id="main-footer-separator" class="my-3 mx-auto"></div>
 
 
   <!-- *** 'footer' block in 'base.html/include footer.html' *** -->

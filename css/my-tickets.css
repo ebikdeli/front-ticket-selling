@@ -1,0 +1,92 @@
+*{
+    font-family: 'B Yekan';
+}
+
+body{
+    background-color: #f6f8f9;
+}
+
+main{
+    width: 90%;
+    direction: rtl;
+    min-height: 100vh;
+}
+
+.ticket-title{
+    direction: rtl;
+    margin: 20px 20px 20px 0;
+    font-size: 24px;
+    color: rgba(5, 0, 0, 0.588);
+
+}
+
+.my-ticket-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.ticket{
+    width: 360px;
+    height: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgb(238, 238, 238);
+}
+
+.status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.status-loss{
+    background-color: #FFC0C7;
+    color: red;
+}
+
+.status-win{
+    background-color: #D9ECE1;
+    color: green;
+}
+
+.name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name > p{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.name > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: steelblue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 25px;
+}
+
+.name > div > i{
+    background-color: white;
+    color: steelblue;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
