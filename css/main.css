@@ -5,6 +5,7 @@
 
 *{
     font-family: 'B Yekan';
+    direction: rtl;
 }
 
 #belit-header-logo{
@@ -425,8 +426,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .belit-order-payment-button i{
     font-size: 20px;
-    margin-left: 8px;
-    margin-right: -4px;
+    /* margin-left: 8px;
+    margin-right: -4px; */
+    margin-top: 1px;
     font-weight: 900;
 }
 
