@@ -40,8 +40,33 @@
 
 
   <!-- **** 'header' block in 'base.html/include header.html' **** -->
-  <nav>
-
+  <nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
+      <a href="./index.html">
+        <div class="w-100">
+          <img id="logo-image" src="https://cdn.dsmcdn.com/web/logo/ty-web-white.svg" alt="trendyol logo">
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+        <ul class="nav-icons navbar-nav me-auto mb-2 mb-lg-0">
+          <a href="./signup-login.html">
+            <div class="d-flex justify-content-center align-items-center">
+              <i class="bi bi-person-fill"></i>
+              <small>پروفایل</small>
+            </div>
+          </a>
+          <a href="./index.html">
+            <div class="d-flex justify-content-center align-items-center">
+              <i class="bi bi-house-door"></i>
+              <small>صفحه اصلی</small>
+            </div>
+          </a>
+        </ul>
+      </div>
+    </div>
   </nav>
   <!-- **** 'header' block in 'base.html/include header.html' **** -->
 
@@ -54,7 +79,7 @@
     </div>
     <section class="my-ticket-list my-3">
         <!-- Each ticket (START) -->
-        <div class="ticket">
+        <div class="ticket" data-ticket-id="111">
             <!-- ticket status -->
             <div class="status status-loss">
                 <p class="m-0">متاسفانه شما برنده نشدید</p>
@@ -135,7 +160,7 @@
         <!-- Each ticket (END) -->
 
         <!-- Each Ticket Pop Up (start) -->
-        <div class="ticket-popup-box   ">
+        <div class="ticket-popup-box   d-none" data-ticket-id="111">
           <div class="ticket-popup">
             <div>
               <p>جزئیات بلیط</p>
