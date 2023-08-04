@@ -1,5 +1,7 @@
 import {validateEmail} from './functions.js';
 import { sendPostData } from './ajax.js';
+import getCookie from './csrftoken.js';
+
 
 
 
@@ -142,7 +144,8 @@ loginForm.addEventListener('submit', function(e){
     let password = this.querySelector('#login-password').value;
     if (validateLSForm(email, password)) {
         console.log('PROCEEDS FOR AJAX LOGIN FORM');
-        // let url = `${location.protocol}://${location.hostname}/login/login/`;
+        // // let url = `${location.protocol}://${location.hostname}/login/login/`;
+        // let url = `${location.protocol}/login/login/`;
         // let data = {'username': email, 'password': password}
         // Proceed to send AJAX request
         // sendPostData(url, data)
@@ -165,7 +168,8 @@ signUpForm.addEventListener('submit', function(e){
     let password = this.querySelector('#signup-password').value;
     if (validateLSForm(email, password)) {
         console.log('PROCEEDS FOR AJAX SIGNUP FORM');
-        // let url = `${location.protocol}://${location.hostname}/login/signup/`;
+        // // let url = `${location.protocol}://${location.hostname}/login/signup/`;
+        // let url = `${location.protocol}/login/signup/`;
         // let gender = document.querySelector('input[name="gender"]').value;
         // if (gender.length == 0){
         //     gender = null;
