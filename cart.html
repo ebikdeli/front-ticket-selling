@@ -10,6 +10,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon">
   <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
@@ -22,13 +23,13 @@
 
 
   <!-- ***** 'head' block in 'base.html' -->
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/cart.css">
   <!-- ***** 'head' block in 'base.html' -->
 
 
 
   <!-- ** 'title' block in 'base.html' ** -->
-  <title>Welcome to trenydol</title>
+  <title>سبد خرید</title>
   <!-- ** 'title' block in 'base.html' ** -->
 
 
@@ -41,7 +42,53 @@
 
   <!-- **** 'header' block in 'base.html/include header.html' **** -->
   <nav>
+    <div class="nav-helper-icon">
+      <!-- Helper links -->
+      <div class="nav-top mx-auto">
+        <div class="nav-top-links">
+          <ul>
+            <li>
+              <a href="#">کوپن های تخفیف</a>
+            </li>
+            <li>
+              <a href="./about-contact-us.html">درباره ما</a>
+            </li>
+            <li>
+              <a href="#">راهنمایی و پشتیبانی</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Logo and icons -->
+      <div>
+        <div class="nav-log-icons mx-auto d-flex justify-content-around align-items-center">
+          <a href="#" dideo-checked="true">
+            <img id="belit-header-logo" src="https://cdn.dsmcdn.com/web/logo/ty-web.svg" alt="trendyol logo">
+          </a>
+          <div class="header-icons d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+              <i class="bi bi-person"></i>
+              <p>ورود</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <i class="bi bi-heart"></i>
+              <p>علاقه مندی های من</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="cart-quantity d-flex justify-content-between align-items-center">
+                <i class="bi bi-cart"></i>
+                <span>0</span>
+              </div>
+              <p>سبد خرید من</p>
+            </div>
 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-categories">
+
+    </div>
   </nav>
   <!-- **** 'header' block in 'base.html/include header.html' **** -->
 
@@ -49,7 +96,21 @@
 
   <!-- ******* 'content' block in 'base.html' ******* -->
   <main>
+    <!-- If cart is empty show following block -->
+    <section class="empty-cart my-4 mx-auto text-center   d-none">
+      <h3 class="my-4">سبد خرید خالی است</h3>
+      <img src="./image/empty-cart.png" alt="">
+    </section>
 
+    <!-- If cart is not empty -->
+    <section class="cart-fill my-4">
+      <div class="tickets">
+        <p>سبد خرید</p>
+      </div>
+      <div class="order-summary">
+        <p>خلاصه سفارش</p>
+      </div>
+    </section>
   </main>
   <!-- ******* 'content' block in 'base.html' ******* -->
 
@@ -82,7 +143,7 @@
 
 <!-- ** 'scripts' block in 'base.html' -->
 <!-- To use a module in parent script, we should set 'type="module"' for the parent script! -->
-<script src="./js/main.js" type="module"></script>
+<script src="./js/cart.js" type="module"></script>
 <!-- ** 'scripts' block in 'base.html' -->
 
 
