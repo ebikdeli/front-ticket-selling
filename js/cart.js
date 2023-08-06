@@ -1,187 +1,191 @@
 // Base cart template and script:
 // https://codepen.io/justinklemm/pen/kyMjjv
-import {addOne, minuseOne, checkCartQuantity} from './functions.js';
+import {addOne, minuseOne} from './functions.js';
 import {sendPostData} from './ajax.js';
 
 
-// * When page first load, check if cart is empty or not
-let emptyCartElem = document.querySelector('.cart--no--items');
-let cartExistElem = document.querySelector('.cart--items-exists');
-let totalItemsElem = document.querySelector('#cart-items');
-checkCartQuantity(totalItemsElem, emptyCartElem, cartExistElem);
-
-
-// * Funtions to 'remove', 'update Quantity' and 'reCalculate' items for the cart
-/* Set rates + misc */
-var taxRate = 0.05;
-var shippingRate = 4500; 
-var fadeTime = 300;
-
-/* Recalculate cart */
-function recalculateCart()
-{
-  var subtotal = 0;
-  let totalQuantity = 0;
-  
-  /* Sum up row total prices */
-  $('.cart--total--price--value').each(function () {
-    subtotal += parseFloat($(this).text());
-  });
-  /* Sum up total quantity */
-  Array.from(document.querySelectorAll('.cart--product--quantity')).forEach(inputElem => {
-    totalQuantity += Number(inputElem.value);
-  })
-  
-  /* Calculate totals */
-  var tax = subtotal * taxRate;
-  var shipping = (subtotal > 0 ? shippingRate : 0);
-  var total = subtotal + tax + shipping;
-  
-  /* Update totals display */
-  $('.totals-value').fadeOut(fadeTime, function() {
-    $('#cart-subtotal').html(subtotal.toFixed(0));
-    $('#cart-tax').html(tax.toFixed(0));
-    $('#cart-shipping').html(shipping.toFixed(0));
-    $('#cart-total').html(total.toFixed(0));
-    $('#cart-items').html(totalQuantity.toFixed(0));
-    if(total == 0){
-      $('.checkout').fadeOut(fadeTime);
-    }else{
-      $('.checkout').fadeIn(fadeTime);
-    }
-    $('.totals-value').fadeIn(fadeTime);
-
-    // Check if cart is empty
-    checkCartQuantity(totalItemsElem, emptyCartElem, cartExistElem);
-  });
+// *** Convert number to a Comma separator string
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
 
-/* Update quantity */
-function updateQuantity(quantityInputElem)
-{
-  /* Calculate line price */
-  var productRow = $(quantityInputElem).parent().parent().parent();
-  var price = parseFloat(productRow.children('.cart--unit--price--column').children('.cart--unit--price--box').children('.cart--unit-price--value').text());
-  var quantity = $(quantityInputElem).val();
-  var linePrice = price * quantity;
-  /* Update line price display and recalc cart totals */
-  productRow.children('.cart--total--price--column').children('.cart--total--price--box').children('.cart--total--price--value').each(function () {
-    $(this).fadeOut(fadeTime, function() {
-      $(this).text(linePrice.toFixed(0));
-      recalculateCart();
-      $(this).fadeIn(fadeTime);
-    });
-  });  
-}
-
-/* Remove item from cart */
-function removeItem(removeIcon)
-{
-  /* Remove row from DOM and recalc cart total */
-  var productRow = $(removeIcon).parent().parent().parent();
-  productRow.slideUp(fadeTime, function() {
-    productRow.remove();
-    recalculateCart();
-  });
+// *** Convert back a comma separator string to Number
+function parseToNumber(str) {
+  return parseFloat(str.replaceAll(',', ''));
 }
 
 
-// * Cart funtionality
-// Change product quantity
-const changeProductQuantity = document.querySelector('#cart--product--list');
-
-changeProductQuantity.addEventListener('click', e => {
-  // * Add quantity
-  if(e.target.classList.contains('quantity--up')){
-    // console.log('quantity up');
-    Array.from(e.target.parentNode.children).forEach((elem) => {
-      if(elem.nodeName == 'INPUT'){
-        const data = {
-          product_id: elem.getAttribute('data-product-id'), 
-          quantity: Number(elem.value) + 1}
-        sendPostData('http://127.0.0.1:8000/change-product-quantity-cart', data, 'مشکلی پیش آمده')
-        .then(data => {
-          if(data.status == '200'){
-            console.log(data);
-            addOne(elem, 15);
-            updateQuantity(elem);
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        })
-        
-      }
-    })
-  }
-  // * Minus quantity
-  if(e.target.classList.contains('quantity--down')){
-    // console.log('quantity down');
-    Array.from(e.target.parentNode.children).forEach((elem) => {
-      if(elem.nodeName == 'INPUT'){
-        const data = {
-          product_id: elem.getAttribute('data-product-id'), 
-          quantity: Number(elem.value) - 1}
-        sendPostData('http://127.0.0.1:8000/change-product-quantity-cart', data, 'مشکلی پیش آمده')
-        .then(data => {
-          if(data.status == '200'){
-            console.log(data);
-            minuseOne(elem);
-            updateQuantity(elem);
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        })
-      }
-    })
-  }
+// *** Change all price to thousand separator text
+Array.from(document.querySelectorAll('.price-value')).forEach(elem => {
+  elem.innerHTML = numberWithCommas(elem.innerHTML);
 })
 
 
-// Integration of pure JS and Jquery!!!
-// $('.cart--product-removal').click( function() {
-$('.cart--remove--icon').click( function() {
-  Swal.fire({
-    title: 'حذف محصول',
-    text: "آیا از حذف این محصول از سبد خرید خود مطمئنید؟",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#37eb34',
-    cancelButtonColor: '#eb3434',
-    confirmButtonText: 'بله',
-    cancelButtonText: 'خیر',
-  }).then((result) => {
-    if (result.isConfirmed) {
-      let data = {product_id: this.getAttribute('data-product-id')};
-      sendPostData('http://127.0.0.1:8000/delete-product-cart', data, 'مشکلی پیش آمده')
-      .then(data => {
-        console.log(data)
-        if(data.status == 200){
-          removeItem(this);
-          Swal.fire(
-            'پاک شد!',
-            'محصول از سبد خرید حذف شد',
-            'success'
-          )
+const calculateTotalPrice = () => {
+  // * This function calculate total price of the order and return it. If no product found, return 'null'
+  var totalPriceUnits = document.querySelectorAll('.total-price-unit');
+  var totalPrice = document.querySelector('#total-price');
+  var price = 0;
+  if (totalPriceUnits == undefined){
+      return null
+  }
+  Array.from(totalPriceUnits).forEach(totalPriceUnit => {
+      price += parseToNumber(totalPriceUnit.innerHTML);
+  })
+  totalPrice.innerHTML = numberWithCommas(price);
+  return price;
+}
+calculateTotalPrice()
+
+
+
+// *** Calculate 'total-quantity'
+const calculateTotalQuantity = () => {
+  // * This function calculate total quantity of the order and return it
+  var cartQuantityNumbers = document.querySelectorAll('.cart-quantity-number')
+  var totalquantity = document.querySelector('#total-quantity');
+  var quantity = 0;
+  Array.from(cartQuantityNumbers).forEach(cartQuantityNumber => {
+      quantity += Number(cartQuantityNumber.value)
+  })
+  totalquantity.innerHTML = quantity;
+  return quantity;
+}
+calculateTotalQuantity()
+
+
+const ticketUnits = document.querySelectorAll('.ticket-unit')
+const errorMsgElem = document.querySelector('.error-msg');
+
+// *** Cart funtionalities
+
+Array.from(ticketUnits).forEach(ticketUnit =>{
+  ticketUnit.addEventListener('click', e => {
+    const inputQuantityElem = ticketUnit.querySelector('.cart-quantity-number');
+    errorMsgElem.innerHTML = '';
+    // ? Increase item by one
+    if(e.target.closest('.cart-quantity-inc')){
+      let ticketId = inputQuantityElem.getAttribute('data-ticket-id');
+      let cartId = document.querySelector('input[name="cart-id"]').value;
+      let quantity = Number(inputQuantityElem.value);
+      // Only change increase quantity if quantity is less than 150
+      if(quantity < 150){
+        let url = `${location.protocol}//${location.host}/cart/change-ticket-cart`;
+        let data = {'quantity': quantity+1, 'ticket-id': ticketId,'cart-id': cartId}
+        // increaseOne(url, data, inputQuantityElem);
+        // ! simulate successful quantity change
+        inputQuantityElem.value = quantity + 1;
+        ticketUnit.querySelector('.total-price-unit').innerHTML = numberWithCommas(
+          parseToNumber(ticketUnit.querySelector('.price-unit').innerHTML) * (quantity + 1)
+        )
+        calculateTotalPrice();
+        calculateTotalQuantity()
+      }
+    }
+    // ? Decrease item by one
+    if(e.target.closest('.cart-quantity-dec')){
+      let data = null;
+      let url = null;
+      let ticketId = inputQuantityElem.getAttribute('data-ticket-id');
+      let cartId = document.querySelector('input[name="cart-id"]').value;
+      let quantity = Number(inputQuantityElem.value);
+      if(quantity == 1){
+        url = `${location.protocol}//${location.host}/cart/delete-ticket-cart`;
+        data = {'ticket-id': ticketId, 'cart-id': cartId}
+        // removeTicket(url, data, ticketUnit);
+        // ! simulate successful ticket removal from cart
+        ticketUnit.remove();
+        calculateTotalPrice();
+        calculateTotalQuantity();
+        // Check if cart is empty show empty cart
+        if(Number(document.querySelector('#total-quantity').innerHTML) == 0){
+          document.querySelector('.cart-fill').classList.add('d-none');
+          document.querySelector('.empty-cart').classList.remove('d-none');
         }
-      })
-      .catch(err => {
-        console.log(err);
-        Swal.fire({
-          icon: 'error',
-          title: 'مشکلی پیش آمده',
-          text: 'محصول حذف نشد',
-        })
-      })
+      }
+      else if(quantity > 1){
+        url = `${location.protocol}//${location.host}/cart/change-ticket-cart`;
+        data = {'quantity': quantity-1, 'ticket-id': ticketId,'cart-id': cartId}
+        // DecreaseOne(url, data, inputQuantityElem);
+        // ! simulate successful quantity change
+        inputQuantityElem.value = quantity - 1;
+        ticketUnit.querySelector('.total-price-unit').innerHTML = numberWithCommas(
+          parseToNumber(ticketUnit.querySelector('.price-unit').innerHTML) * (quantity - 1)
+        )
+        calculateTotalPrice();
+        calculateTotalQuantity()
+      }
+    }
+    // ? Remove item from cart by click on the trash bin
+    if(e.target.closest('.cart-remove')){
+      let ticketId = inputQuantityElem.getAttribute('data-ticket-id');
+      let cartId = document.querySelector('input[name="cart-id"]').value;
+      let url = `${location.protocol}//${location.host}/cart/delete-ticket-cart`;
+      let data = {'ticket-id': ticketId, 'cart-id': cartId}
+      // removeTicket(url, data);
+      // ! Simulate ticket removal from cart
+      ticketUnit.remove();
+      calculateTotalPrice();
+      calculateTotalQuantity();
+      // Check if cart is empty show empty cart
+      if(Number(document.querySelector('#total-quantity').innerHTML) == 0){
+        document.querySelector('.cart-fill').classList.add('d-none');
+        document.querySelector('.empty-cart').classList.remove('d-none');
+      }
+    }
+  })
+})
+
+
+
+const increaseOne = (url, data, inputElem) => {
+  sendPostData(url, data)
+  .then(data => {
+    console.log(data);
+    if(data['status'] == 'ok'){
+      inputElem.value = data['quantity'] + 1;
     }
     else{
-      Swal.fire('محصول در سبد خرید باقی ماند')
+      errorMsgElem.innerHTML = data['msg'];
     }
   })
   .catch(error => {
     console.log(error);
-    alert('SWAL کار نمی کند');
+    errorMsgElem.innerHTML = error
   })
-});
+}
+
+const DecreaseOne = (url, data, inputElem) => {
+  sendPostData(url, data)
+  .then(data => {
+    console.log(data);
+    if(data['status'] == 'ok'){
+      inputElem.value = data['quantity'] - 1;
+    }
+    else{
+      errorMsgElem.innerHTML = data['msg'];
+    }
+  })
+  .catch(error => {
+    console.log(error);
+    errorMsgElem.innerHTML = error;
+  })
+}
+
+const removeTicket = (url, data, ticketElem) => {
+  sendPostData(url, data)
+  .then(data => {
+    console.log(data);
+    if(data['status'] == 'ok'){
+      ticketElem.remove();
+    }
+    else{
+      errorMsgElem.innerHTML = data['msg'];
+    }
+  })
+  .catch(error => {
+    console.log(error);
+    errorMsgElem.innerHTML = error;
+  })
+}

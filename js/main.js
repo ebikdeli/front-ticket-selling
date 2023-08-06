@@ -101,7 +101,7 @@ Array.from(belitCards).forEach(belitCard => {
             let belit_quantity = '1';
             // Send data to server
             // // let url = `${location.protocol}://${location.hostname}/cart/add-ticket-cart`;
-            // let url = `${location.protocol}/cart/add-ticket-cart`;
+            // let url = `${location.protocol}//${location.host}/cart/add-ticket-cart`;
             // let errormsg = 'ارتباط با سرور برقرار نشد';
             // let data = {'cart-id': cartId, 'ticket-id': belit_id, 'quantity': belit_quantity}
             // sendPostData(url, data, errormsg)
@@ -171,7 +171,7 @@ const IncBelitCard = (buttonElem) => {
     }
     // Make ajax call to increase ticket by one
     // // let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
-    // let url = `${location.protocol}/cart/change-ticket-cart`;
+    // let url = `${location.protocol}//${location.host}cart/change-ticket-cart`;
     // let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': belitQuantity+1}
     // sendPostData(url, data)
     // .then(data => {
@@ -235,7 +235,7 @@ const IncOrderBelit = (buttonElem) => {
     }
     // Make ajax call to increase ticket by one
     // // let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
-    // let url = `${location.protocol}/cart/change-ticket-cart`;
+    // let url = `${location.protocol}//${location.host}/cart/change-ticket-cart`;
     // let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': belitQuantity+1}
     // sendPostData(url, data)
     // .then(data => {
@@ -307,12 +307,12 @@ const DecBelitCard = (buttonElem) => {
     // Make ajax call to decrease ticket by one. If quantity == 1, call 'delete-ticket-cart' in ajax call
     // if(belitQuantity-1 > 0){
     // //     let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
-    //     let url = `${location.protocol}/cart/change-ticket-cart`;
+    //     let url = `${location.protocol}//${location.host}/cart/change-ticket-cart`;
     //     let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': belitQuantity-1}
     // }
     // else{
     // //     let url = `${location.protocol}://${location.hostname}/cart/delete-ticket-cart`;
-    // let url = `${location.protocol}/cart/delete-ticket-cart`;
+    // let url = `${location.protocol}//${location.host}/cart/delete-ticket-cart`;
     //     let data = {'cart-id': cartId, 'ticket-id': belitId}
     // }
     // sendPostData(url, data)
@@ -372,12 +372,12 @@ const DecOrderBelit = (buttonElem) => {
     // Make ajax call to decrease ticket by one. If quantity == 1, call 'delete-ticket-cart' in ajax call
     // if(belitQuantity-1 > 0){
     // //     let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
-    //     let url = `${location.protocol}/cart/change-ticket-cart`;
+    //     let url = `${location.protocol}//${location.host}/cart/change-ticket-cart`;
     //     let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': belitQuantity-1}
     // }
     // else{
     // //     let url = `${location.protocol}://${location.hostname}/cart/delete-ticket-cart`;
-    //     let url = `${location.protocol}/cart/delete-ticket-cart`;
+    //     let url = `${location.protocol}//${location.host}/cart/delete-ticket-cart`;
     //     let data = {'cart-id': cartId, 'ticket-id': belitId}
     // }
     // sendPostData(url, data)
@@ -438,12 +438,12 @@ const ChangeBelitCardQuantity = (inputElem) => {
     // Make ajax call to change ticket quantity. If newQuantity == 0, call 'delete-ticket-cart' in ajax call
     // if(newQuantity > 0){
     // //     let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
-    //     let url = `${location.protocol}/cart/change-ticket-cart`;
+    //     let url = `${location.protocol}//${location.host}/cart/change-ticket-cart`;
     //     let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': newQuantity}
     // }
     // else{
     // //     let url = `${location.protocol}://${location.hostname}/cart/delete-ticket-cart`;
-    //     let url = `${location.protocol}/cart/delete-ticket-cart`;
+    //     let url = `${location.protocol}//${location.host}/cart/delete-ticket-cart`;
     //     let data = {'cart-id': cartId, 'ticket-id': belitId}
     // }
     // sendPostData(url, data)
@@ -499,12 +499,12 @@ const ChangeOrderBelitQuantity = (inputElem) => {
     // Make ajax call to change ticket quantity. If newQuantity == 0, call 'delete-ticket-cart' in ajax call
     // if(newQuantity > 0){
     // //     let url = `${location.protocol}://${location.hostname}/cart/change-ticket-cart`;
-    //     let url = `${location.protocol}/cart/change-ticket-cart`;
+    //     let url = `${location.protocol}//${location.host}/cart/change-ticket-cart`;
     //     let data = {'cart-id': cartId, 'ticket-id': belitId, 'quantity': newQuantity}
     // }
     // else{
     // //     let url = `${location.protocol}://${location.hostname}/cart/delete-ticket-cart`;
-    //     let url = `${location.protocol}/cart/delete-ticket-cart`;
+    //     let url = `${location.protocol}//${location.host}/cart/delete-ticket-cart`;
     //     let data = {'cart-id': cartId, 'ticket-id': belitId}
     // }
     // sendPostData(url, data)
