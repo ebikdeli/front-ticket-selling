@@ -8,13 +8,13 @@ const cartId = document.querySelector('.cart-id').value
 
 
 // *** Convert number to a Comma separator string
-function numberWithCommas(x) {
+export function numberWithCommas(x) {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
 
 // *** Convert back a comma separator string to Number
-function parseToNumber(str) {
+export function parseToNumber(str) {
     return parseFloat(str.replaceAll(',', ''));
 }
 
