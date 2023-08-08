@@ -1,20 +1,20 @@
-:root{
+:root {
     --orange-color: #f27a1a;
     --border-color: #e6e6e6;
     --text-color: #333;
 }
 
-*{
+* {
     font-family: 'B Yekan';
 }
 
-body{
+body {
     background-color: #fafafa;
 }
 
 /* * Navbar section */
 
-.navbar{
+.navbar {
     background-color: var(--orange-color) !important;
     padding-left: 5px;
     padding-right: 15px;
@@ -23,21 +23,21 @@ body{
     margin-bottom: 30px;
 }
 
-#logo-image{
+#logo-image {
     width: 150px;
     height: auto;
     margin: 10px;
 }
 
-.nav-icons{
+.nav-icons {
     gap: 30px;
 }
 
-.nav-icons > a > div{
+.nav-icons>a>div {
     gap: 5px;
 }
 
-.nav-icons a{
+.nav-icons a {
     text-decoration: none;
     color: white;
     font-size: 20px;
@@ -46,37 +46,167 @@ body{
 
 
 /* * Main section */
-main{
-    width: 95%;
+main {
     direction: rtl;
     min-height: 100vh;
-}
-
-.ticket-title{
-    direction: rtl;
-    margin: 20px 20px 20px 0;
-    font-size: 24px;
     color: #333;
-
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color)
 }
 
-.my-ticket-list{
+#success-img {
+    width: 180px;
+    height: auto;
+}
+
+@media screen and (max-width: 800px) {
+    #success-img {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #success-img {
+        width: 120px;
+    }
+}
+
+.order-specs{
     display: flex;
-    /* justify-content: center; */
-    justify-content: flex-start;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    /* border: 1px solid var(--border-color); */
+    border-radius: 4px;
+    background-color: #fafafa;
+    padding: 20px;
+    width: max-content;
+}
+
+.order-specs > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.order-specs > div > span{
+    font-size: 20px;
+}
+
+.order-specs > div > span:nth-of-type(2){
+    font-weight: 600;
+}
+
+#order-id{
+    color: #f27a1a;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#total-price{
+    color: #f27a1a;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#total-quantity{
+    color: #f27a1a;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.order-items{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    /* gap: 15px; */
+    padding: 20px;
+    border: 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.order-item{
+    text-align: start;
+    margin-bottom: 10px;
+    padding: 15px;
+    padding-top: 5px;
+    border: 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.order-item-specs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.order-item-specs div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.order-item > div{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
 }
 
-@media screen and (max-width:816px) {
-    main{
-        text-align: center;
-    }
+.order-items > p{
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: start;
+}
 
-    .my-ticket-list{
-        justify-content: center;
-    }
+.order-item p{
+    display: inline;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.order-item-quantity{
+    font-size: 18px !important;
+    color: #f27a1a;
+}
+
+.order-item-price{
+    font-size: 18px !important;
+    color: #f27a1a;
 }
 
 
+#back-index{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 6px;
+    font-size: 18px !important;
+    border-radius: 4px !important;
+}
+
+#print-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    flex-direction: row-reverse;
+    font-size: 18px !important;
+    border-radius: 4px !important;
+    color: white;
+}
+
+/* * This is used when print the page */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
