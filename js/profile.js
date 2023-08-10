@@ -22,11 +22,19 @@ export function parseToNumber(str) {
 document.querySelector('#my-orders').addEventListener('click', e => {
     // Must get changed for backend purpose
     let orderUrl = `${location.protocol}//${location.host}/order.html`;
+    // To support page load on github
+    if(location.pathname.includes('front-ticket-selling')){
+        orderUrl = `${location.protocol}//${location.host}/front-ticket-selling/order.html`;
+    }
     window.open(orderUrl);
 })
 document.querySelector('#my-cart').addEventListener('click', e => {
     // Must get changed for backend purpose
     let cartUrl = `${location.protocol}//${location.host}/cart.html`;
+    // To support page load on github
+    if(location.pathname.includes('front-ticket-selling')){
+        cartUrl = `${location.protocol}//${location.host}/front-ticket-selling/cart.html`;
+    }
     window.open(cartUrl);
 })
 
