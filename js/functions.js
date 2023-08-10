@@ -8,6 +8,13 @@ const validateEmail = (email) => {
   };
 
 
+//  * Validate phone number (IRAN)
+const validate_phone_number = (number) => {
+    var regex = new RegExp("^(\\+98|0)?9\\d{9}$");
+    var result = regex.test(number);
+    return result;
+};
+
 // Helper to add 1 to the product--cart input number
 let addOne = (inputNode, max=5) => {
     if(Number(inputNode.value < max)){
@@ -153,4 +160,5 @@ function isNumeric(str) {
 
 export {validateEmail, addOne, minuseOne, 
     checkCartQuantity, checkRulesBorder, disabledSubmitRule,
-    signUpDataValidation, signInDataValidation, isNumeric};
+    signUpDataValidation, signInDataValidation, isNumeric,
+    validate_phone_number};
