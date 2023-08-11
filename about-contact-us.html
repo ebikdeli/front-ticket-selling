@@ -40,19 +40,72 @@
 
 
     <!-- **** 'header' block in 'base.html/include header.html' **** -->
-    <header data-testid="header" class="ccRGmyqq">
-        <section class="HvNbZ4r0 WM4vlRG3">
-            <div class="IbiCRNW8">
-                <a href="/" data-testid="logo-link" dideo-checked="true">
-                    <img data-testid="logo" src="https://cdn.dsmcdn.com/web/logo/ty-web-white.svg" alt="Trendyol"
-                        class="lW5w1e4Z">
+    <header>
+        <nav class="no-print navbar navbar-expand-sm mb-0">
+            <div class="container-fluid">
+                <!-- Index url -->
+                <a href="./index.html">
+                    <div class="w-100">
+                        <img id="logo-image" src="https://cdn.dsmcdn.com/web/logo/ty-web-white.svg" alt="trendyol logo">
+                    </div>
                 </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+                    <ul class="nav-icons navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- Rules url -->
+                        <a href="">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <small>قوانین وبسایت</small>
+                            </div>
+                        </a>
+                        <!-- Contact us url -->
+                        <a href="./about-contact-us.html#contact-us">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <small>تماس با ما</small>
+                            </div>
+                        </a>
+                        <!-- about us url -->
+                        <a href="./about-contact-us.html#about-us">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <small>درباره ما</small>
+                            </div>
+                        </a>
+                        <!-- Index url -->
+                        <a href="./index.html">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <small>صفحه اصلی</small>
+                            </div>
+                        </a>
+                    </ul>
+                </div>
             </div>
-            <nav class="haWRCPLK">
-                <a class="Gk933iTI" data-testid="id-0" dideo-checked="true" id="about-us">درباره ما</a>
-                <a class="Gk933iTI" data-testid="id-5" dideo-checked="true">تماس با ما</a>
-            </nav>
-        </section>
+        </nav>
+        <!-- Icons in the header -->
+        <div class="header-icons">
+            <a href="./signup-login.html">
+                <div class="d-flex justify-content-between align-items-center" title="ورود">
+                    <i class="bi bi-person"></i>
+                    <!-- <p>ورود</p> -->
+                    <p>پروفایل</p>
+                </div>
+            </a>
+            <a href="./cart.html">
+                <div class="d-flex justify-content-between align-items-center" title="سبد خرید" style="gap: 3px;">
+                    <i class="bi bi-cart"></i>
+                    <span class="header-cart-quantity">0</span>
+                </div>
+            </a>
+            <a href="./my-tickets.html">
+                <div class="d-flex justify-content-between align-items-center" title="سفارشات من">
+                    <i class="bi bi-gift"></i>
+                    <p>سفارشات من</p>
+                </div>
+            </a>
+        </div>
     </header>
     <!-- **** 'header' block in 'base.html/include header.html' **** -->
 

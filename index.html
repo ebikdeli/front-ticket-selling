@@ -51,8 +51,8 @@
   <!-- ******* 'content' block in 'base.html' ******* -->
   <main class="mx-auto">
     <!-- * Header -->
-    <section class="d-flex justify-content-between align-items-center" style="gap: 30px; height: 86px;">
-      <div class="d-flex justify-content-center align-items-center" style="gap: 10px;">
+    <section class="top-header">
+      <div class="d-flex justify-content-center align-items-center flex-wrap" style="gap: 10px;">
         <a href="#">
           <img id="belit-header-logo" src="https://cdn.dsmcdn.com/web/logo/ty-web.svg" alt="trendyol logo">
         </a>
@@ -61,25 +61,27 @@
         </div>
       </div>
 
-      <div class="d-flex justify-content-center align-items-center" style="gap: 20px; font-size: 18px;">
-        <div>
-          <a href="./my-tickets.html" class="belit-headers d-flex justify-content-center align-items-center"
-            style="text-decoration: none; color:black;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000000" viewBox="0 0 256 256">
-              <path
-                d="M240,116H209.66L165.17,71.52A11.9,11.9,0,0,0,156.69,68H44.28a12,12,0,0,0-10,5.34L4.67,117.78A4,4,0,0,0,4,120v48a12,12,0,0,0,12,12H36.29a28,28,0,0,0,55.42,0h72.58a28,28,0,0,0,55.42,0H240a12,12,0,0,0,12-12V128A12,12,0,0,0,240,116ZM41,77.78A4,4,0,0,1,44.28,76H156.69a4,4,0,0,1,2.82,1.17L198.34,116H15.47ZM64,196a20,20,0,1,1,20-20A20,20,0,0,1,64,196Zm128,0a20,20,0,1,1,20-20A20,20,0,0,1,192,196Zm52-28a4,4,0,0,1-4,4H219.71a28,28,0,0,0-55.42,0H91.71a28,28,0,0,0-55.42,0H16a4,4,0,0,1-4-4V124H240a4,4,0,0,1,4,4Z">
-              </path>
-            </svg>
-            <small style="font-size: 16px; margin-top:2px;">سفارشات من</small>
-          </a>
-        </div>
-        <div>
-          <a href="./signup-login.html" class="belit-headers d-flex justify-content-center align-items-center"
-            style="text-decoration: none; color:black;">
-            <i class="bi bi-person" style="font-size: 18px;"></i>
-            <small style="font-size: 16px;">ثبت نام</small>
-          </a>
-        </div>
+      <!-- Icons in the header -->
+      <div class="header-icons">
+        <a href="./signup-login.html">
+          <div class="d-flex justify-content-between align-items-center" title="ورود">
+            <p>پروفایل</p>
+            <i class="bi bi-person"></i>
+            <!-- <p>ورود</p> -->
+          </div>
+        </a>
+        <a href="./cart.html">
+          <div class="d-flex justify-content-between align-items-center" title="سبد خرید" style="gap: 3px;">
+            <span class="header-cart-quantity">0</span>
+            <i class="bi bi-cart"></i>
+          </div>
+        </a>
+        <a href="./my-tickets.html">
+          <div class="d-flex justify-content-between align-items-center" title="سفارشات من">
+            <p>سفارشات من</p>
+            <i class="bi bi-gift"></i>
+          </div>
+        </a>
       </div>
     </section>
     <!-- * Header -->
@@ -92,8 +94,12 @@
 
     <!-- * Buttons -->
     <section id="belit-buttons" class="my-4 d-flex justify-content-start align-items-center">
-      <button class="btn belit-buttons belit-buttons-active">قرعه کشی</button>
-      <button class="btn belit-buttons">بلیط های من</button>
+      <a href="">
+        <button class="btn belit-buttons belit-buttons-active">قرعه کشی</button>
+      </a>
+      <a class="" href="./my-tickets.html">
+        <button class="btn belit-buttons">بلیط های من</button>
+      </a>
     </section>
     <!-- * Buttons -->
 
@@ -125,7 +131,7 @@
           </div>
           <!-- Bottom part in Belit-Card -->
           <div class="belit-card-bottom">
-            <div class="d-flex justify-content-between align-items-center flex-row-reverse">
+            <div class="d-flex justify-content-between align-items-center flex-row">
               <p class="belit-name">نام بلیط</p>
               <p class="belit-price">
                 <span>10000</span>&nbsp;<span>تومان</span>
@@ -192,7 +198,7 @@
           </div>
           <!-- Bottom part in Belit-Card -->
           <div class="belit-card-bottom">
-            <div class="d-flex justify-content-between align-items-center flex-row-reverse">
+            <div class="d-flex justify-content-between align-items-center flex-row">
               <p class="belit-name">نام بلیط</p>
               <p class="belit-price">
                 <span>10000</span>&nbsp;<span>تومان</span>
@@ -258,7 +264,7 @@
           </div>
           <!-- Bottom part in Belit-Card -->
           <div class="belit-card-bottom">
-            <div class="d-flex justify-content-between align-items-center flex-row-reverse">
+            <div class="d-flex justify-content-between align-items-center flex-row">
               <p class="belit-name">نام بلیط</p>
               <p class="belit-price">
                 <span>10000</span>&nbsp;<span>تومان</span>
@@ -325,7 +331,7 @@
           </div>
           <!-- Bottom part in Belit-Card -->
           <div class="belit-card-bottom">
-            <div class="d-flex justify-content-between align-items-center flex-row-reverse">
+            <div class="d-flex justify-content-between align-items-center flex-row">
               <p class="belit-name">نام بلیط</p>
               <p class="belit-price">
                 <span>10000</span>&nbsp;<span>تومان</span>
@@ -392,7 +398,7 @@
           </div>
           <!-- Bottom part in Belit-Card -->
           <div class="belit-card-bottom">
-            <div class="d-flex justify-content-between align-items-center flex-row-reverse">
+            <div class="d-flex justify-content-between align-items-center flex-row">
               <p class="belit-name">نام بلیط</p>
               <p class="belit-price">
                 <span>10000</span>&nbsp;<span>تومان</span>
@@ -459,7 +465,7 @@
           </div>
           <!-- Bottom part in Belit-Card -->
           <div class="belit-card-bottom">
-            <div class="d-flex justify-content-between align-items-center flex-row-reverse">
+            <div class="d-flex justify-content-between align-items-center flex-row">
               <p class="belit-name">نام بلیط</p>
               <p class="belit-price">
                 <span>10000</span>&nbsp;<span>تومان</span>
@@ -507,7 +513,7 @@
       </div>
       <!-- * Order-Box -->
       <div class="order-box">
-        <div class="m-0" style="color: #333;">خلاصه سفارش</div>
+        <div class="m-0 text-end" style="color: #333;">خلاصه سفارش</div>
         <div class="order-box-separator"></div>
         <!-- When user selects a belit, this block (order-empty) changed with another block (order-fill) (START) -->
         <div class="order-empty text-center">
@@ -580,7 +586,8 @@
                   <label for=":r3i:" class="dtZcumdX kaRo6NoN" style="color: #333;">نام</label>
                   <div class="Y9vANfzi e80bHszM" style="border-color: #e6e6e6;">
                     <span class="l1iOUiPQ"></span>
-                    <input type="text" placeholder="نام" maxlength="50" name="first-name" id=":r3i:" class="sM5lDC2n" value="">
+                    <input type="text" placeholder="نام" maxlength="50" name="first-name" id=":r3i:" class="sM5lDC2n"
+                      value="">
                   </div>
                   <div class="o_fDlFpW">
                     <p data-testid="error-label" class="mQk9NoTR mPs04A4r x5a8pADS pzMMgeuR kaRo6NoN">وارد کردن نام
@@ -591,7 +598,8 @@
                   <label for=":r37:" class="dtZcumdX kaRo6NoN" style="color: #333;">نام خانوادگی</label>
                   <div class="Y9vANfzi e80bHszM" style="border-color: #e6e6e6;">
                     <span class="l1iOUiPQ"></span>
-                    <input type="text" placeholder="نام خانوادگی" maxlength="50" name="last-name" id=":r37:" class="sM5lDC2n" value="">
+                    <input type="text" placeholder="نام خانوادگی" maxlength="50" name="last-name" id=":r37:"
+                      class="sM5lDC2n" value="">
                   </div>
                   <div class="o_fDlFpW">
                     <p data-testid="error-label" class="mQk9NoTR mPs04A4r x5a8pADS pzMMgeuR kaRo6NoN">وارد کردن نام
@@ -601,16 +609,19 @@
               </div>
               <!-- Calendar -->
               <div data-testid="w-datepicker">
-                <p data-testid="WTypography" class="mQk9NoTR pJadFwet x5a8pADS PczFZ0qG PebTJIWS v7f8805S">تاریخ تولد</p>
-                <div class="MuiFormControl-root MuiTextField-root ZMADHewP css-i44wyl" style="border: 1px solid #e6e6e6;">
+                <p data-testid="WTypography" class="mQk9NoTR pJadFwet x5a8pADS PczFZ0qG PebTJIWS v7f8805S">تاریخ تولد
+                </p>
+                <div class="MuiFormControl-root MuiTextField-root ZMADHewP css-i44wyl"
+                  style="border: 1px solid #e6e6e6;">
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-1bn53lx">
-                    <input aria-invalid="false" autocomplete="off" id=":r38:" placeholder="DD.MM.YYYY" type="date" name="birth-date"
+                    <input aria-invalid="false" autocomplete="off" id=":r38:" placeholder="DD.MM.YYYY" type="date"
+                      name="birth-date"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-1uvydh2 birth-date"
                       value="" id="birth-date">
-                      <script>
-                        <!-- $("#:r3i:").persianDatepicker(); -->
-                      </script>
+                    <script>
+                      <!-- $("#:r3i:").persianDatepicker(); -->
+                    </script>
                     <!-- <div
                       class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1nvf7g0">
                       <button
@@ -633,7 +644,8 @@
                   </div>
                 </div>
                 <div class="CWqmPVS3">
-                  <p data-testid="error-label" class="mQk9NoTR mPs04A4r x5a8pADS PczFZ0qG Nd7aFdrR YpWAd_kY">وارد کردن تاریخ تولد اجباری است</p>
+                  <p data-testid="error-label" class="mQk9NoTR mPs04A4r x5a8pADS PczFZ0qG Nd7aFdrR YpWAd_kY">وارد کردن
+                    تاریخ تولد اجباری است</p>
                 </div>
               </div>
               <!-- ID -->
@@ -644,7 +656,8 @@
                   <input id=":r3a:" class="sM5lDC2n" placeholder="شماره ملی" name="identifier" maxlength="11">
                 </div>
                 <div class="o_fDlFpW">
-                  <p data-testid="error-label" class="mQk9NoTR mPs04A4r x5a8pADS pzMMgeuR kaRo6NoN">وارد کردن شماره ملی اجباری است</p>
+                  <p data-testid="error-label" class="mQk9NoTR mPs04A4r x5a8pADS pzMMgeuR kaRo6NoN">وارد کردن شماره ملی
+                    اجباری است</p>
                 </div>
               </div>
               <!-- Agree with laws -->
@@ -655,7 +668,8 @@
                   <div class="hzZ5Csrb">
                     <label class="IO5UmHup" for=":r3b:">
                       <div style="display: flex; flex-direction: row;">
-                        <p data-testid="WTypography" class="mQk9NoTR mPs04A4r x5a8pADS jcmPQqiY lkuvt_Og ecvPfvur">قوانین</p>&nbsp;
+                        <p data-testid="WTypography" class="mQk9NoTR mPs04A4r x5a8pADS jcmPQqiY lkuvt_Og ecvPfvur">
+                          قوانین</p>&nbsp;
                         <p data-testid="WTypography" class="mQk9NoTR mPs04A4r x5a8pADS alE4WpA0">را خوانده و میپذیرم</p>
                       </div>
                     </label>

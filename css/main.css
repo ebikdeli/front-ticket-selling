@@ -17,15 +17,95 @@
     text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #fb7205, 0 0 82px #fb7205, 0 0 92px #fb7205, 0 0 102px #fb7205, 0 0 151px #fb7205;
 }
 
+
+.header-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 26px;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: 0;
+    /* border-bottom: 1px solid var(--border-color); */
+    background-color: white;
+}
+
+@media screen and (max-width:630px) {
+    .header-icons{
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width:330px) {
+    .header-icons{
+        flex-flow: column;
+    }
+}
+
+.header-icons a{
+    text-decoration: none;
+    color: #333;
+}
+
+.header-icons div{
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.header-icons div:hover{
+    color: #f27a1a;
+}
+
+.header-icons p{
+    margin: 0;
+}
+
+.header-icons i{
+    font-size: 24px !important;
+}
+
+.header-cart-quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f27a1a;
+    font-size: 14px;
+    color: white;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+}
+
+
+
 main{
     max-width: 1200px;
     padding: 20px;
     /* direction: rtl; */
 }
 
-@media screen and (max-height:500px) {
+@media screen and (max-width:500px) {
     main{
         height: 100vh !important;
+    }
+}
+
+.top-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    height: 86px;
+}
+
+@media screen and (max-width:630px) {
+    .top-header{
+        flex-direction: column;
+        height: auto;
     }
 }
 
@@ -67,9 +147,46 @@ main{
     border-color: var(--orange-color);
 }
 
+#belit-buttons > a:nth-child(2):hover{
+    color: #333 !important;
+}
+
 /* * Belit-Order */
 .belit-order-section{
-    gap: 0;
+    gap: 5px;
+}
+
+@media screen and (max-width:630px) {
+    .belit-order-section{
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+    .order-box{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .belit-card-part{
+        justify-content: center !important;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .order-box{
+        width: 98% !important;
+        min-width: auto !important;
+    }
+    .belit-orders{
+        gap: 15px !important;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .belit-orders-name{
+        text-align: center;
+    }
+    .belit-orders-price{
+        text-align: center;
+        padding: 0 !important;
+    }
 }
 
 .belit-card-part{
@@ -89,7 +206,7 @@ main{
 }
 
 .belit-card-top p{
-    text-align: end;
+    /* text-align: end; */
     font-size: 12px !important;
     font-weight: 500;
     margin: 0;

@@ -41,6 +41,7 @@ calculateTotalPrice()
 
 
 // *** Calculate 'total-quantity'
+const headerCartQuantity = document.querySelector('.header-cart-quantity');
 const calculateTotalQuantity = () => {
   // * This function calculate total quantity of the order and return it
   var cartQuantityNumbers = document.querySelectorAll('.cart-quantity-number')
@@ -50,6 +51,7 @@ const calculateTotalQuantity = () => {
       quantity += Number(cartQuantityNumber.value)
   })
   totalquantity.innerHTML = quantity;
+  headerCartQuantity.innerHTML = quantity;
   return quantity;
 }
 calculateTotalQuantity()

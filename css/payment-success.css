@@ -12,7 +12,11 @@ body {
     background-color: #fafafa;
 }
 
-/* * Navbar section */
+/* * Header section */
+
+header{
+    margin-bottom: 30px;
+}
 
 .navbar {
     background-color: var(--orange-color) !important;
@@ -20,7 +24,17 @@ body {
     padding-right: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+}
+
+@media screen and (max-width:288px) {
+    .container-fluid{
+        justify-content: center !important;
+        padding-bottom: 10px;
+    }
+    .navbar-toggler{
+        margin-bottom: 10px;
+    }
 }
 
 #logo-image {
@@ -41,6 +55,62 @@ body {
     text-decoration: none;
     color: white;
     font-size: 20px;
+}
+
+
+.header-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    font-size: 18px;
+    padding: 10px 15px;
+    border: 0;
+    border-bottom: 1px solid var(--border-color);
+    background-color: white;
+}
+
+@media screen and (max-width:330px) {
+    .header-icons{
+        flex-flow: column;
+    }
+}
+
+.header-icons a{
+    text-decoration: none;
+    color: #333;
+}
+
+.header-icons div{
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.header-icons div:hover{
+    color: #f27a1a;
+}
+
+.header-icons p{
+    margin: 0;
+}
+
+.header-icons i{
+    font-size: 24px !important;
+}
+
+.header-cart-quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f27a1a;
+    color: white;
+    font-size: 14px;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
 }
 
 
