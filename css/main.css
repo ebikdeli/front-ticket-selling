@@ -276,6 +276,10 @@ main{
     font-size: 14px;
 }
 
+.belit-name{
+    max-width: 150px;
+}
+
 .belit-card-tarikh{
     font-size: 12px !important;
     text-align: right;
