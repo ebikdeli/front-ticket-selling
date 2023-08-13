@@ -3,6 +3,12 @@
     --border-color: #e6e6e6;
 }
 
+@font-face{
+    font-family: "B Yekan";
+    src: url("./fonts/BYekan.ttf") format("ttf"),
+    url("./fonts/BYekan.woff2") format('woff2');
+}
+
 *{
     font-family: 'B Yekan';
 }

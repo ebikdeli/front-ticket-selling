@@ -1,26 +1,27 @@
-:root{
+:root {
     --orange-color: #f27a1a;
     --border-color: #e6e6e6;
 }
 
-@font-face{
+@font-face {
     font-family: "B Yekan";
     src: url("./fonts/BYekan.ttf") format("ttf"),
-    url("./fonts/BYekan.woff2") format('woff2');
+        url("./fonts/BYekan.woff2") format('woff2');
 }
 
-*{
+* {
     font-family: 'B Yekan';
+
 }
 
-body{
+body {
     background-color: #FAFAFA;
 }
 
 
-/* * Header section */
+/* * Header section  */
 
-header{
+header {
     margin-bottom: 30px;
 }
 
@@ -34,11 +35,12 @@ header{
 }
 
 @media screen and (max-width:288px) {
-    .container-fluid{
+    .container-fluid {
         justify-content: center !important;
         padding-bottom: 10px;
     }
-    .navbar-toggler{
+
+    .navbar-toggler {
         margin-bottom: 10px;
     }
 }
@@ -78,36 +80,36 @@ header{
 }
 
 @media screen and (max-width:330px) {
-    .header-icons{
+    .header-icons {
         flex-flow: column;
     }
 }
 
-.header-icons a{
+.header-icons a {
     text-decoration: none;
     color: #333;
 }
 
-.header-icons div{
+.header-icons div {
     justify-content: center;
     align-items: center;
     gap: 8px;
     cursor: pointer;
 }
 
-.header-icons div:hover{
+.header-icons div:hover {
     color: #f27a1a;
 }
 
-.header-icons p{
+.header-icons p {
     margin: 0;
 }
 
-.header-icons i{
+.header-icons i {
     font-size: 24px !important;
 }
 
-.header-cart-quantity{
+.header-cart-quantity {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,76 +119,4 @@ header{
     width: 23px;
     height: 23px;
     border-radius: 50%;
-}
-
-
-
-/* * Main section */
-
-main{
-    min-height: 100vh;
-    background-color: #FAFAFA;
-    direction: rtl;
-}
-
-.order-box{
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    color: #333333;
-}
-
-#title-separator{
-    border: 0;
-    border-top: 1px solid var(--border-color);
-    margin-top: 2px;
-    margin-bottom: 2px;
-    height: 2px;
-}
-
-.order-item p{
-    display: inline;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0;
-}
-
-.order-item-quantity{
-    font-size: 20px !important;
-}
-
-.total-quantity-price{
-    margin-top: 20px;
-    padding-top: 15px;
-    border: 0;
-    border-top: 1px solid var(--border-color);
-}
-
-.total-quantity-price p{
-    margin: 0;
-    font-size: 20px;
-}
-
-#total-quantity , #total-price{
-    color: #f27a1a;
-    font-size: 22px;
-}
-
-.payment-button-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 15px;
-}
-
-.payment-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    padding: 5px 45px;
-    /* background-color: #333333; */
-    border-radius: 5px !important;
 }

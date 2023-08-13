@@ -3,6 +3,12 @@
     --border-color: #e6e6e6;
 }
 
+@font-face{
+    font-family: "B Yekan";
+    src: url("./fonts/BYekan.ttf") format("ttf"),
+    url("./fonts/BYekan.woff2") format('woff2');
+}
+
 *{
     font-family: 'B Yekan';
     direction: rtl;
@@ -94,6 +100,12 @@ main{
     }
 }
 
+@media screen and (max-width:420px) {
+    main{
+        padding: 5px;
+    }
+}
+
 .top-header{
     display: flex;
     justify-content: space-between;
@@ -153,13 +165,13 @@ main{
 
 /* * Belit-Order */
 .belit-order-section{
-    gap: 5px;
+    gap: 2px;
 }
 
 @media screen and (max-width:630px) {
     .belit-order-section{
         flex-direction: column-reverse;
-        gap: 15px;
+        gap: 20px;
     }
     .order-box{
         margin-left: auto;
@@ -190,7 +202,7 @@ main{
 }
 
 .belit-card-part{
-    gap: 10px;
+    gap: 3px;
 }
 
 .belit-card{
@@ -236,6 +248,8 @@ main{
     border-radius: 8px;
     max-width: fit-content;
     margin-bottom: 8px;
+    margin-left: 1px;
+    margin-right: auto;
 }
 
 .belit-card-separator{
