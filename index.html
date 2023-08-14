@@ -95,10 +95,13 @@
     <!-- * Buttons -->
     <section id="belit-buttons" class="my-4 d-flex justify-content-start align-items-center">
       <a href="">
-        <button class="btn belit-buttons belit-buttons-active">قرعه کشی</button>
+        <button class="btn belit-buttons belit-buttons-active">محصولات</button>
       </a>
       <a class="" href="./rules.html">
         <button class="btn belit-buttons">قوانین</button>
+      </a>
+      <a class="" href="./faq.html">
+        <button class="btn belit-buttons">سوالات پرتکرار</button>
       </a>
     </section>
     <!-- * Buttons -->
@@ -110,8 +113,7 @@
         <!-- Top part in Belit-Card -->
         <!-- For active belit come here (START) -->
 
-        <!-- Belit-cart -->
-        <div class="belit-card">
+        <div class="belit-card" belit-counter="1">
           <div class="belit-card-top mx-auto">
             <p class="">ارزش محصول</p>
             <p class="prize_money">
@@ -174,14 +176,14 @@
               </button>
             </div>
           </div>
+          <!-- * These are the data needed for popup section that entirely executed in JS -->
+          <span class="d-none">توضیحات اساسی و عمیق محصول در اینجا قرار میگیرد</span>
         </div>
 
-
-        <!--  -->
         <!-- For active belit come here (END) -->
 
 
-        <div class="belit-card">
+        <div class="belit-card" belit-counter="2">
           <div class="belit-card-top mx-auto">
             <p class="">ارزش محصول</p>
             <p class="prize_money">
@@ -247,7 +249,7 @@
         </div>
 
 
-        <div class="belit-card">
+        <div class="belit-card" belit-counter="3">
           <div class="belit-card-top mx-auto">
             <p class="">ارزش محصول</p>
             <p class="prize_money">
@@ -314,7 +316,7 @@
 
 
 
-        <div class="belit-card">
+        <div class="belit-card" belit-counter="4">
           <div class="belit-card-top mx-auto">
             <p class="">ارزش محصول</p>
             <p class="prize_money">
@@ -381,7 +383,7 @@
 
 
 
-        <div class="belit-card">
+        <div class="belit-card" belit-counter="5">
           <div class="belit-card-top mx-auto">
             <p class="">ارزش محصول</p>
             <p class="prize_money">
@@ -448,7 +450,7 @@
 
 
 
-        <div class="belit-card">
+        <div class="belit-card" belit-counter="6">
           <div class="belit-card-top mx-auto">
             <p class="">ارزش محصول</p>
             <p class="prize_money">
@@ -516,6 +518,66 @@
 
 
       </div>
+
+
+
+      <!-- (START) BELIT_CARD POPUP DIV. THIS TEMPLATE IS COMMON FOR EVERY CARD TO GET POPUP -->
+      <div class="belit-card-popup-template   d-none">
+        <div class="belit-card-popup">
+          <i class="bi bi-x-lg belit-card-popup-close-button"></i>
+          <p class="belit-card-popup-name">مشخصات محصول</p>
+          <img src="./image/belit1.webp" class="mx-auto" alt="">
+          <div class="belit-card-popup-anounce">
+            <h3>اعلام قرعه کشی</h3>
+            <p>
+              <span class="">شماره سیستمی محصول:</span>
+              <span class="mx-1 bcpa-system-number">2861</span>
+              <span class="mx-1">شماره محصول در سایت اصلی:</span>
+              <span class="me-1">2023/345</span>
+            </p>
+            <p>
+              <span>جایزه:</span>
+              <span class="bcpa-reward-quantity">1</span>
+              <span class="ms-1">عدد</span>
+              <span>خودروی لوکس لکسوس LS با حجم موتور 2 لیتر و به قیمت</span>
+              <span class="price-value mx-1">320000000</span>
+              <span>تومان</span>
+            </p>
+            <p>
+              <span>قیمت بلیط:</span>
+              <span class="price-value mx-1">10000</span>
+              <span>تومان</span>
+            </p>
+            <p>
+              <span>تعداد بلیط:</span>
+              <span class="price-value mx-1">300000</span>
+              <span>عدد</span>
+            </p>
+            <p>
+              <span>آغاز فروش بلیط</span>
+              <span class="me-1">10/08/2023 09:00</span>
+            </p>
+            <p>
+              <span>پایان فروش بلیط:</span>
+              <span class="mx-1">11/18/2023 09:00</span>
+              <span>یا اگر تعداد بلیط ها پایان یابد</span>
+            </p>
+            <p>
+              <span>زمان قرعه کشی:</span>
+              <span class="mx-1">11/25/2023 09:00</span>
+              <span>یک متن طولانی که نیاز به مترجم دارد</span>
+            </p>
+            <p>
+              <span>محل قرعه کشی:</span>
+              <span class="me-1">آدرسی که فراهم خواهد شد و ممکن است طولانی باشد</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- (START) BELIT_CARD POPUP DIV. THIS TEMPLATE IS COMMON FOR EVERY CARD TO GET POPUP -->
+
+
+
       <!-- * Order-Box -->
       <div class="order-box">
         <div class="m-0 text-end" style="color: #333;">خلاصه سفارش</div>

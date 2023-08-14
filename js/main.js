@@ -672,3 +672,10 @@ identityForm.addEventListener('submit', function(e) {
                 console.log(data);
             }
 })
+
+
+
+
+
+// ************************* Belit-Detail PopUp ********************
+console.log(document.querySelectorAll('[belit-counter]'));
