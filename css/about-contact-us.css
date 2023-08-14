@@ -302,3 +302,59 @@ header{
 .contact-us-box span{
     font-weight: 600;
 }
+
+
+/* *** TO BE FULLY RESPONSIVE */
+@media screen and (max-width:1200px) {
+    main{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+@media screen and (max-width:895px) {
+    /* disable little line between h4 tag texts */
+    h4 i{
+        display: none !important;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .UMCItFYY > ul > li{
+        flex-direction: column;
+    }
+    .UMCItFYY > ul > li > figure{
+        margin: 0 !important;
+        margin-bottom: 20px !important;
+    }
+    .vDmxOy35 > li > img{
+        margin: 0 !important;
+        margin-bottom: 20px !important;
+    }
+    h2{
+        font-size: 36px !important;
+    }
+}
+
+@media screen and (max-width:580px) {
+    .UMCItFYY{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .vDmxOy35{
+        margin-bottom: 0 !important;
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 15px !important;
+    }
+}
+
+@media screen and (max-width:330px) {
+    h2{
+        font-size: 28px !important;
+    }
+    .contact-us-box{
+        align-items: center;
+        width: auto;
+        font-size: 16px;
+    }
+}
