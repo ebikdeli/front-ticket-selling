@@ -90,6 +90,15 @@ Array.from(document.querySelectorAll('.belit-orders-price')).forEach(elem => {
 document.querySelector('#total-price').innerHTML = numberWithCommas(document.querySelector('#total-price').innerHTML);
 
 
+
+// * Disable every card that is not active
+Array.from(document.querySelectorAll('.card-disabled')).forEach(belitCardButton => {
+    belitCardButton.querySelector('.belit-card-add-cart-button').disabled = true;
+    belitCardButton.querySelector('.belit-card-add-cart-button').innerHTML = 'تمام شد';
+})
+
+
+
 // *****************************************************************************
 
 
@@ -121,17 +130,10 @@ Array.from(belitCards).forEach(belitCard => {
             <img src="${src}" class="mx-auto" alt="${name}">
             <div class="belit-card-popup-anounce">
                 <h3>اعلام قرعه کشی</h3>
-                <p>
-                <span class="">شماره سیستمی محصول:</span>
-                <span class="mx-1 bcpa-system-number">${systemNumber}</span>
-                <span class="mx-1">شماره محصول در سایت اصلی:</span>
-                <span class="me-1">${gameNumber}</span>
-                </p>
+                
                 <p>
                 <span>جایزه:</span>
-                <span class="bcpa-reward-quantity">${rewardQuantity}</span>
-                <span class="ms-1">عدد</span>
-                <span>${name}</span>
+                <span class="me-1>${name}</span>
                 <span class="mx-1">${rewardValue}</span>
                 <span>تومان</span>
                 </p>
@@ -139,11 +141,6 @@ Array.from(belitCards).forEach(belitCard => {
                 <span>قیمت بلیط:</span>
                 <span class="mx-1">${belitUnitPrice}</span>
                 <span>تومان</span>
-                </p>
-                <p>
-                <span>تعداد بلیط:</span>
-                <span class="belit-quantity-total mx-1">300000</span>
-                <span>عدد</span>
                 </p>
                 <p>
                 <span>آغاز فروش بلیط</span>
@@ -155,16 +152,7 @@ Array.from(belitCards).forEach(belitCard => {
                 <span>یا اگر تعداد بلیط ها پایان یابد</span>
                 </p>
                 <p>
-                <span>زمان قرعه کشی:</span>
-                <span class="mx-1">11/25/2023 09:00</span>
-                <span>یک متن طولانی که نیاز به مترجم دارد</span>
-                </p>
-                <p>
-                <span>محل قرعه کشی:</span>
-                <span class="me-1">آدرسی که فراهم خواهد شد و ممکن است طولانی باشد</span>
-                </p>
-                <p>
-                <span>دیگر توضیحات:</span>
+                <span>توضیحات:</span>
                 <span class="me-1">باید ببینیم چه جزئیاتی نیازه</span>
                 </p>
             </div>
