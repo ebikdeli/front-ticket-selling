@@ -623,129 +623,140 @@ const ChangeOrderBelitQuantity = (inputElem) => {
 
 
 
-
-// *** Authentication Pop up interaction
+// *** Belit Order Button click redirection (INSTEAD OF DISABLED POP UP SECTION)
 const belitOrderButton = document.querySelector('.belit-order-payment-button');
-const popupSection = document.querySelector('.popup-section');
-const closeButton = document.querySelector('.close');
-// Show popup when click on order button
-belitOrderButton.addEventListener('click', e => {
-    setTimeout(() => {
-        popupSection.classList.toggle('d-none');
-    }, 160)
-})
-// Close popup when click on 'close' button
-closeButton.addEventListener('click', e => {
-    popupSection.classList.add('d-none');
-})
-// Close popup when click on 'Escape' key on the keyboard
-document.addEventListener('keyup', e => {
-    if (e.key == 'Escape' && !popupSection.classList.contains('d-none')) {
-        popupSection.classList.add('d-none');
+belitOrderButton.addEventListener('click', e=>{
+    let orderUrl = `${location.protocol}//${location.host}/order.html`;
+    if(location.pathname.includes('front-ticket-selling')){
+        orderUrl = `${location.protocol}//${location.host}/front-ticket-selling/order.html`;
     }
+    window.open(orderUrl);
 })
-// Close popup when click outside the popup cadre
-document.addEventListener("click", (e) => {
-    // Check if the filter list parent element exist
-    const isClosest = e.target.closest('#popup-cadre');
-    // If `isClosest` equals falsy & popup has the class `show`
-    // then hide the popup
-    if (!isClosest && (!popupSection.classList.contains("d-none"))) {
-        popupSection.classList.add("d-none");
-    }
-});
+
+
+
+// *** Authentication Pop up interaction (TEMPORARY DISABLED)
+// const belitOrderButton = document.querySelector('.belit-order-payment-button');
+// const popupSection = document.querySelector('.popup-section');
+// const closeButton = document.querySelector('.close');
+// // Show popup when click on order button
+// belitOrderButton.addEventListener('click', e => {
+//     setTimeout(() => {
+//         popupSection.classList.toggle('d-none');
+//     }, 160)
+// })
+// // Close popup when click on 'close' button
+// closeButton.addEventListener('click', e => {
+//     popupSection.classList.add('d-none');
+// })
+// // Close popup when click on 'Escape' key on the keyboard
+// document.addEventListener('keyup', e => {
+//     if (e.key == 'Escape' && !popupSection.classList.contains('d-none')) {
+//         popupSection.classList.add('d-none');
+//     }
+// })
+// // Close popup when click outside the popup cadre
+// document.addEventListener("click", (e) => {
+//     // Check if the filter list parent element exist
+//     const isClosest = e.target.closest('#popup-cadre');
+//     // If `isClosest` equals falsy & popup has the class `show`
+//     // then hide the popup
+//     if (!isClosest && (!popupSection.classList.contains("d-none"))) {
+//         popupSection.classList.add("d-none");
+//     }
+// });
 
 
 
 
-// *** Identity Form validation and ajax send
-const identityForm = document.querySelector('form[name="identity-check-form"]');
-identityForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    // Get form field data with default border color
-    let firstNameElem = document.querySelector('input[name="first-name"]');
-    firstNameElem.parentElement.style.borderColor = '#e6e6e6';
-    let surNameElem = document.querySelector('input[name="last-name"]');
-    surNameElem.parentElement.style.borderColor = '#e6e6e6';
-    let birthDateElem = document.querySelector('input[name="birth-date"]');
-    birthDateElem.parentElement.parentElement.style.borderColor = '#e6e6e6';
-    let identifierElem = document.querySelector('input[name="identifier"]');
-    identifierElem.parentElement.style.borderColor = '#e6e6e6';
-    let agreeElem = document.querySelector('input[name="agree"]');
-    agreeElem.style.borderColor = '#999999';
-    if (agreeElem.checked) {
-        agreeElem.style.borderColor = '#f27a1a';
-    }
-    // Error box
-    let errorBox = document.querySelector('#error-box-wrapper');
-    let erroMsg = document.querySelector('.message');
-    errorBox.classList.add('d-none');
-    erroMsg.innerHTML = '';
-    let errors = 0;
-    // Process form data
-    if (firstNameElem.value.length == 0) {
-        firstNameElem.parentElement.style.borderColor = '#d21313';
-        errorBox.classList.remove('d-none');
-        erroMsg.innerHTML = 'نام کوچک خود را وارد کنید';
-        errors += 1;
-        return false;
-    }
-    else if (surNameElem.value.length == 0) {
-        surNameElem.parentElement.style.borderColor = '#d21313';
-        errorBox.classList.remove('d-none');
-        erroMsg.innerHTML = 'نام خانوادگی خود را وارد';
-        errors += 1;
-        return false;
-    }
-    else if (birthDateElem.value.length == 0) {
-        birthDateElem.parentElement.parentElement.style.borderColor = '#d21313';
-        errorBox.classList.remove('d-none');
-        erroMsg.innerHTML = 'تاریخ تولد خود را وارد کنید';
-        errors += 1;
-        return false;
-    }
-    else if (identifierElem.value.length == 0) {
-        identifierElem.parentElement.style.borderColor = '#d21313';
-        errorBox.classList.remove('d-none');
-        erroMsg.innerHTML = 'شماره ملی خود را وارد کنید';
-        errors += 1;
-        return false;
-    }
-    else if (identifierElem.value.length !== 10 || (identifierElem.value.length === 10 && !isNumeric(identifierElem.value))) {
-        identifierElem.parentElement.style.borderColor = '#d21313';
-        errorBox.classList.remove('d-none');
-        erroMsg.innerHTML = 'شماره ملی خود را به درستی وارد کنید';
-        errors += 1;
-        return false;
-    }
-    else if (!agreeElem.checked) {
-        agreeElem.style.borderColor = '#d21313';
-        errorBox.classList.remove('d-none');
-        erroMsg.innerHTML = 'با قوانین موافقت نکرده اید';
-        errors += 1;
-        return false;
-    }
-    // If no error proceed to send data in AJAX request
-    if (errors == 0) {
-        // let url = `${location.protocol}://${location.hostname}/login/...`;
-        let url = `${location.protocol}/login/...`;
-        let data = {
-            'first-name': firstNameElem.value,
-            'last-name': surNameElem.value,
-            'birth-date': birthDateElem.value,
-            'identifier': identifierElem.value
-        }
-        // sendPostData(url, data)
-        // .then(data => {
-        //     console.log(data);
-        // })
-        // .catch(error => {
-        //     console.log(error);
-        // })
-        console.log(url);
-        console.log(data);
-    }
-})
+// *** Identity Form validation and ajax send (TEMPORARY DISABLED)
+// const identityForm = document.querySelector('form[name="identity-check-form"]');
+// identityForm.addEventListener('submit', function (e) {
+//     e.preventDefault();
+//     // Get form field data with default border color
+//     let firstNameElem = document.querySelector('input[name="first-name"]');
+//     firstNameElem.parentElement.style.borderColor = '#e6e6e6';
+//     let surNameElem = document.querySelector('input[name="last-name"]');
+//     surNameElem.parentElement.style.borderColor = '#e6e6e6';
+//     let birthDateElem = document.querySelector('input[name="birth-date"]');
+//     birthDateElem.parentElement.parentElement.style.borderColor = '#e6e6e6';
+//     let identifierElem = document.querySelector('input[name="identifier"]');
+//     identifierElem.parentElement.style.borderColor = '#e6e6e6';
+//     let agreeElem = document.querySelector('input[name="agree"]');
+//     agreeElem.style.borderColor = '#999999';
+//     if (agreeElem.checked) {
+//         agreeElem.style.borderColor = '#f27a1a';
+//     }
+//     // Error box
+//     let errorBox = document.querySelector('#error-box-wrapper');
+//     let erroMsg = document.querySelector('.message');
+//     errorBox.classList.add('d-none');
+//     erroMsg.innerHTML = '';
+//     let errors = 0;
+//     // Process form data
+//     if (firstNameElem.value.length == 0) {
+//         firstNameElem.parentElement.style.borderColor = '#d21313';
+//         errorBox.classList.remove('d-none');
+//         erroMsg.innerHTML = 'نام کوچک خود را وارد کنید';
+//         errors += 1;
+//         return false;
+//     }
+//     else if (surNameElem.value.length == 0) {
+//         surNameElem.parentElement.style.borderColor = '#d21313';
+//         errorBox.classList.remove('d-none');
+//         erroMsg.innerHTML = 'نام خانوادگی خود را وارد';
+//         errors += 1;
+//         return false;
+//     }
+//     else if (birthDateElem.value.length == 0) {
+//         birthDateElem.parentElement.parentElement.style.borderColor = '#d21313';
+//         errorBox.classList.remove('d-none');
+//         erroMsg.innerHTML = 'تاریخ تولد خود را وارد کنید';
+//         errors += 1;
+//         return false;
+//     }
+//     else if (identifierElem.value.length == 0) {
+//         identifierElem.parentElement.style.borderColor = '#d21313';
+//         errorBox.classList.remove('d-none');
+//         erroMsg.innerHTML = 'شماره ملی خود را وارد کنید';
+//         errors += 1;
+//         return false;
+//     }
+//     else if (identifierElem.value.length !== 10 || (identifierElem.value.length === 10 && !isNumeric(identifierElem.value))) {
+//         identifierElem.parentElement.style.borderColor = '#d21313';
+//         errorBox.classList.remove('d-none');
+//         erroMsg.innerHTML = 'شماره ملی خود را به درستی وارد کنید';
+//         errors += 1;
+//         return false;
+//     }
+//     else if (!agreeElem.checked) {
+//         agreeElem.style.borderColor = '#d21313';
+//         errorBox.classList.remove('d-none');
+//         erroMsg.innerHTML = 'با قوانین موافقت نکرده اید';
+//         errors += 1;
+//         return false;
+//     }
+//     // If no error proceed to send data in AJAX request
+//     if (errors == 0) {
+//         // let url = `${location.protocol}://${location.hostname}/login/...`;
+//         let url = `${location.protocol}/login/...`;
+//         let data = {
+//             'first-name': firstNameElem.value,
+//             'last-name': surNameElem.value,
+//             'birth-date': birthDateElem.value,
+//             'identifier': identifierElem.value
+//         }
+//         // sendPostData(url, data)
+//         // .then(data => {
+//         //     console.log(data);
+//         // })
+//         // .catch(error => {
+//         //     console.log(error);
+//         // })
+//         console.log(url);
+//         console.log(data);
+//     }
+// })
 
 
 
