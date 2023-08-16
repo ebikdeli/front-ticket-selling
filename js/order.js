@@ -7,3 +7,7 @@ export function numberWithCommas(x) {
 
 let totalPriceElem = document.querySelector('#total-price');
 totalPriceElem.innerHTML = numberWithCommas(totalPriceElem.innerHTML);
+
+
+// *** 
+document.querySelector('.header-cart-quantity').innerHTML = document.querySelector('#total-quantity').innerHTML;
