@@ -123,6 +123,8 @@ Array.from(belitCards).forEach(belitCard => {
                 let systemNumber = belitCard.getAttribute('system-ticket-number');
                 let gameNumber = belitCard.getAttribute('game-ticket-number');
                 let belitUnitPrice = belitCard.querySelector('.belit-price-number').innerHTML;
+                let belitContent = belitCard.querySelector('.belit-content').innerHTML;
+                let belitDate = belitCard.querySelector('.ticket-date').innerHTML;
                 // <div class="belit-card-popup-template">
                 const newPopUpText = `<div class="belit-card-popup">
             <i class="bi bi-x-lg belit-card-popup-close-button"></i>
@@ -133,27 +135,25 @@ Array.from(belitCards).forEach(belitCard => {
                 
                 <p>
                 <span>جایزه:</span>
-                <span class="me-1>${name}</span>
-                <span class="mx-1">${rewardValue}</span>
+                <span class="me-1" style="font-weight: 600;">${name}</span>
+                </p>
+                <p>
+                <span>مبلغ جایزه:</span>
+                <span class="mx-1" style="color: #f27a1a; font-weight: 600; letter-spacing: 1px;">${rewardValue}</span>
                 <span>تومان</span>
                 </p>
                 <p>
                 <span>قیمت بلیط:</span>
-                <span class="mx-1">${belitUnitPrice}</span>
+                <span class="mx-1" style="color: #f27a1a; font-weight: 600; letter-spacing: 1px;">${belitUnitPrice}</span>
                 <span>تومان</span>
                 </p>
                 <p>
-                <span>آغاز فروش بلیط</span>
-                <span class="me-1">10/08/2023 09:00</span>
-                </p>
-                <p>
-                <span>پایان فروش بلیط:</span>
-                <span class="mx-1">11/18/2023 09:00</span>
-                <span>یا اگر تعداد بلیط ها پایان یابد</span>
+                <span>زمان قرعه کشی</span>
+                <span class="me-1" style="font-weight: 600;">${belitDate}</span>
                 </p>
                 <p>
                 <span>توضیحات:</span>
-                <span class="me-1">باید ببینیم چه جزئیاتی نیازه</span>
+                <span class="me-1">${belitContent}</span>
                 </p>
             </div>
             </div>`;
@@ -164,7 +164,7 @@ Array.from(belitCards).forEach(belitCard => {
         newPopUpElem.innerHTML = newPopUpText;
         const parent = document.querySelector('.bc-popup');
         parent.appendChild(newPopUpElem);
-        newPopUpElem.querySelector('.belit-quantity-total').innerHTML = numberWithCommas(newPopUpElem.querySelector('.belit-quantity-total').innerHTML);
+        // newPopUpElem.querySelector('.belit-quantity-total').innerHTML = numberWithCommas(newPopUpElem.querySelector('.belit-quantity-total').innerHTML);
     }, 10)
 }
 
