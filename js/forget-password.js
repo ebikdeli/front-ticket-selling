@@ -12,36 +12,47 @@ forgetPasswordForm.addEventListener('submit', e => {
     let errors = 0;
 
     if(passwordElem.value.length == 0){
-        alert('رمز عبور را وارد کنید');
+        Swal.fire({
+            icon: 'error',
+            title: 'خطا در رمز عبور',
+            text: 'رمز عبور را وارد کنید',
+        })
         errors += 1;
     }
-    else if(passwordElem.value.length < 4){
-        alert('رمز عبور باید بیش از 4 کاراکتر باشد');
+    else if(passwordElem.value.length < 6){
+        Swal.fire({
+            icon: 'error',
+            title: 'خطا در رمز عبور',
+            text: 'رمز عبور باید بیش از 6 کاراکتر باشد',
+        })
+        errors += 1;
+    }
+    else if(passwordElem.value.length > 20){
+        Swal.fire({
+            icon: 'error',
+            title: 'خطا در رمز عبور',
+            text: 'رمز عبور باید کمتر از 20 کاراکتر باشد',
+        })
         errors += 1;
     }
     else if(confirmPasswordElem.value.length == 0){
-        alert('تکرار رمز عبور را وارد کنید');
+        Swal.fire({
+            icon: 'error',
+            title: 'خطا در رمز عبور',
+            text: 'تکرار رمز عبور را وارد کنید',
+        })
         errors += 1;
     }
     else if (passwordElem.value != confirmPasswordElem.value){
-        alert('رمز و تکرار رمز عبور یکسان نیست');
+        Swal.fire({
+            icon: 'error',
+            title: 'خطا در رمز عبور',
+            text: 'تکرار رمز عبور با مرز عبور یکسان نیست',
+        })
         errors += 1;
     }
+    // If no error proceeds to the next page
     if(errors === 0){
-        // Send AJAX data
-        // // let url = `${location.protocol}://${location.hostname}/login/forget-password/`;
-        // let url = `${location.protocol}/login/forget-password/`;
-        // let data = {'password': passwordElem.value};
-        let data = {'password': passwordElem.value};
-        // sendPostData(url, data)
-        // .then(data => {
-        //     console.log(data);
-        // })
-        // .catch(error => {
-        //     console.log(error);
-        // })
-        // Simulate Successful ajax request
-        console.log(data);
         location.replace(`${location.protocol}/forget-password-complete.html`);
     }
 })
