@@ -3,6 +3,8 @@ import { sendPostData } from './ajax.js';
 import getCookie from './csrftoken.js';
 
 
+let cartId = document.querySelector('.cart-id').value;
+
 
 
 // * Toggle password visible/invisible (LOGIN and SIGNUP FORM)
@@ -146,7 +148,7 @@ loginForm.addEventListener('submit', function(e){
         console.log('PROCEEDS FOR AJAX LOGIN FORM');
         // // let url = `${location.protocol}://${location.hostname}/login/login/`;
         // let url = `${location.protocol}//${location.host}/login/login/`;
-        // let data = {'username': email, 'password': password}
+        // let data = {'username': email, 'password': password, 'cart-id': cartId}
         // Proceed to send AJAX request
         // sendPostData(url, data)
         // .then(data => {
@@ -176,7 +178,7 @@ signUpForm.addEventListener('submit', function(e){
         // }
         // let allowMarketing = document.querySelector('#marketing-verify-checkbox').checked;
         // let allowPersonalData = document.querySelector('#personal-verify-checkbox').checked;
-        // let data = {'username': email, 'password': password, 'gender': gender, 'marketing': allowMarketing, 'personal': allowPersonalData}
+        // let data = {'username': email, 'password': password, 'cart-id': cartId, 'gender': gender, 'marketing': allowMarketing, 'personal': allowPersonalData}
         // sendPostData(url, data)
         // .then(data => {
         //     console.log(data);
