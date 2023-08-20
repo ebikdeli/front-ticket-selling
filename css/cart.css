@@ -135,6 +135,7 @@ main{
 }
 
 .empty-cart img{
+  max-width: 500px;
   width: 70%;
   height: auto;
   border-radius: 4px;
